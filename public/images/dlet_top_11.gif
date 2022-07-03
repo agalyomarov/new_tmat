@@ -1,0 +1,348 @@
+<html>
+<head>
+<title>Клуб Админов — Социальная система веб-мастеров. Прокачай свой сайт!</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<meta name="description" content="Место, где мы можем оторваться по полной, сайт, который объединяет континенты, сайт который объединяет веб-мастеров! Мы делимся своими приемами и секретами, сделай свой сайт красивее, прокачай свой сайт!" />
+<meta name="keywords" content="вебмастеру, dle, ucoz, моды, модули, шаблоны для ucoz, javascript, dle фотоальбомы, приемы, секреты, прокачка сайта" />
+<link rel="search" type="application/opensearchdescription+xml" href="../../../engine/opensearch.php" title="Клуб Админов — Социальная система веб-мастеров. Прокачай свой сайт!" /><link rel="alternate" type="application/rss+xml" title="Клуб Админов — Социальная система веб-мастеров. Прокачай свой сайт!" href="../../../rss.xml" />
+<style type="text/css" media="all">@import url("../css/style.css");
+@import url("../css/engine.css");
+@import url("../css/desing.css");</style>
+</head>
+<body>
+
+<!-- robot and Admin Club -->
+<table border="0" cellspacing="0" cellpadding="0" style="width:100%;">
+<tr><td style="width:30px;"><img src="_.jpg" width="30px" height="137px" alt="" border="0"></td>
+<td style="width:118px;"><img src="_robot.jpg" width="118px" height="137px" alt="" border="0"></td>
+<td style="width:331px;"><img src="_ac.jpg" width="331px" height="137px" alt="" border="0"></td>
+<td>&nbsp;</td>
+<td style="width:330px;" class="log"><!--login--><form method="post" onsubmit="javascript:showBusyLayer()" action=''>
+<table border="0" cellspacing="0" cellpadding="0" style="width:300px;">
+<tr><td colspan="2" style="height:28px;" valign="top"><span class="sing">Вход</span></td></tr>
+<tr><td align="right"><input value="Логин" style="margin-right:11px;" class="text"
+
+onFocus="if(this.value=='Логин'){this.value='';}" title="Введите Ваш логин" name="login_name"></td>
+<td align="right" style="width:158px;"><input value="Пароль" class="text"
+
+onFocus="if(this.value=='Пароль'){this.value='';}" title="Введите Ваш пароль" name="login_password"></td></tr>
+<tr><td class="log-ls "style="padding-top:4px;" >
+<div><a href="../../../index.php@do=register">Регистрация</a></div>
+<div><a href="../../../index.php@do=lostpassword">Восстановление пароля</a></div>
+<div><a href="../../../rules.html">Правила</a></div>
+</td><td align="right" style="padding-top:11px;" valign="top"><input type="image" src="_log_but.gif" onMouseOver="this.src='_log_but_over.gif'" onMouseOut="this.src='_log_but.gif'" value="Вход" style="width:60px;height:19px;cursor:hand;"></td></tr>
+</table>
+<input name="login" type="hidden" id="login" value="submit" /></form>
+<!-- /login --></td>
+<td style="width:30px;">&nbsp;</td></tr>
+</table>
+
+
+<!-- line Menu -->
+<table border="0" cellspacing="0" cellpadding="0" style="width:100%;">
+<tr><td style="width:30px;"></td>
+<td style="width:7px;"><img src="_m.png" width="7px" height="37px" alt="" border="0"></td>
+<td class="free-lm"><!-- in table table --><table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td class="lm" style="height:37px;"><a href="../../../default.htm">Главная</a></td>
+<!-- hr --> <td style="width:3px;height:37px;" valign="top"><img src="_m_hr.png" width="3px" height="37px" alt="" border="0"></td>
+<td class="lm" style="height:37px;"><a href="../../../about.html">О клубе</a></td>
+<!-- hr --> <td style="width:3px;height:37px;" valign="top"><img src="_m_hr.png" width="3px" height="37px" alt="" border="0"></td>
+<td class="lm" style="height:37px;"><a href="../../../rules.html">Правила</a></td>
+<!-- hr --> <td style="width:3px;height:37px;" valign="top"><img src="_m_hr.png" width="3px" height="37px" alt="" border="0"></td>
+<td class="lm" style="height:37px;"><a href="../../../index.php@do=register">Регистрация</a></td>
+<!-- hr --> <td style="width:3px;height:37px;" valign="top"><img src="_m_hr.png" width="3px" height="37px" alt="" border="0"></td>
+<td class="lm" style="height:37px;"><a href="../../../forum"><u>Ф</u>орум</a></td>
+<!-- hr --> <td style="width:3px;height:37px;" valign="top"><img src="_m_hr.png" width="3px" height="37px" alt="" border="0"></td>
+<td class="lm" style="height:37px;"><a href="../../../../www.admin-club.ru/@do=feedback">Обратная связь</a></td>
+<!-- hr --> <td style="width:3px;height:37px;" valign="top"><img src="_m_hr.png" width="3px" height="37px" alt="" border="0"></td>
+</td></tr></table><!-- /in table table --></td>
+<td class="free-lm" width="450px" valing="top">
+
+<marquee loop="true" behavior="scroll" 
+        bgcolor="" direction="left" height="18" width="100%" scrollamount="1" scrolldelay="30" style="color:white;padding-top: 6px;">
+[Сайт] В 2007 году открылся сайт Клуба Админов. 
+[Результаты голосования] Дизайн Клуба Админов признан "классным" - 78% голосовавших, а это 438 человек,
+и 22%, 184 человека, "обфукали" дизайн.
+
+</marquee>
+</td>
+<td style="width:6px;"><img src="_m_.png" width="6px" height="37px" alt="" border="0"></td>
+<td style="width:30px;"></td></tr>
+</table>
+
+
+<!--space 20-->
+<div style="width:1px; height:20px;" align=center><spacer type="block" width="1" height="20px"></div>
+
+<!-- main Table -->
+<table border="0" cellspacing="0" cellpadding="0" style="width:100%;">
+<tr><td style="width:30px;"></td>
+<td style="width:220px;" valign="top"><!--left-->
+<!--block left--><table border="0" cellspacing="0" cellpadding="0" style="width:100%;">
+<tr><td height="31px"><table border="0" cellspacing="0" cellpadding="0" style="width:100%;"><tr><td style="width:5px;height:31px;"><img src="_lef.gif" width="5px" height="31px" alt="" border="0"></td><td class="lef-tit">Разделы сайта</td><td style="width:5px;height:31px;"><img src="_lef_.gif" width="5px" height="31px" alt="" border="0"></td></tr></table></td></tr>
+<tr><td class="lef-bod" id="mmen">
+
+
+<div><a href="../../../publ" class="mm">Статьи</a></div>
+<div><a href="../../../up-technology/default.htm" class="mm">Прокачка</a></div>
+<div><a href="../../../publ/optimisation/default.htm" class="mm">Рефрешинг</a></div>
+<div style="padding-bottom:6px;border-bottom:1px solid #f4f4f4"><a href="../../../faq" class="mm">WiKi</a></div>
+
+
+<div style="margin-top:5px"><a href="../../../scripts">Коды</a></div>
+<div><a href="../../../load" class="mm">Медиа</a></div>
+<div><a href="../../../programms" class="mm">Софт</a></div>
+<div><a href="../../../photo" class="mm">Фотки</a></div>
+
+<script type="text/javascript">try { var nl=document.getElementById('mmen').getElementsByTagName('a'); var found=-1; var url=document.location.href+'../../../default.htm'; var len=0; for (var i=0;i<nl.length;i++){ if (url.indexOf(nl[i].href)>=0){ if (found==-1 || len<nl[i].href.length){ found=i; len=nl[i].href.length; } } } if (found>=0){ nl[found].className='m'; } } catch(e){}</script>
+</td></tr>
+<tr><td height="5px"><table border="0" cellspacing="0" cellpadding="0" style="width:100%;"><tr><td style="width:5px;height:5px;"><img src="_lef_2.gif" width="5px" height="5px" alt="" border="0"></td><td style="border-bottom:1px solid #E7E7E7;height:5px;font-size:4px;"><div style="width:1px; height:1px;" align=center><spacer type="block" width="1" height="1"></div></td><td style="width:5px;height:5px;"><img src="_lef_3.gif" width="5px" height="5px" alt="" border="0"></td></tr></table></td></tr></td></tr></table><!--/block left-->
+<!--space 10--><div style="width:1px; height:10px;" align=center><spacer type="block" width="1" height="10px"></div>
+<!--block left--><table border="0" cellspacing="0" cellpadding="0" style="width:100%;">
+<tr><td height="31px"><table border="0" cellspacing="0" cellpadding="0" style="width:100%;"><tr><td style="width:5px;height:31px;"><img src="_lef.gif" width="5px" height="31px" alt="" border="0"></td><td class="lef-tit">Темы на форуме</td><td style="width:5px;height:31px;"><img src="_lef_.gif" width="5px" height="31px" alt="" border="0"></td></tr></table></td></tr>
+<tr><td class="lef-bod">
+<table class="forum">
+<tr><td><a href="../../../forum/index.php@showtopic=374" target="_blank">А что это за CMS?</a></td></tr><tr><td><a href="../../../forum/index.php@showtopic=375" target="_blank">Пишите статьи</a></td></tr><tr><td><a href="../../../forum/index.php@showtopic=39" target="_blank">IPB + DLE</a></td></tr><tr><td><a href="../../../forum/index.php@showtopic=373" target="_blank">Умный Блог</a></td></tr><tr><td><a href="../../../forum/index.php@showtopic=299" target="_blank">Оценить</a></td></tr><tr><td><a href="../../../forum/index.php@showtopic=371" target="_blank">CMS Helper: Offline E ...</a></td></tr><tr><td><a href="../../../forum/index.php@showtopic=361" target="_blank">Весь текст жирный</a></td></tr><tr><td><a href="../../../forum/index.php@showtopic=291" target="_blank">Социальная сеть для л ...</a></td></tr><tr><td><a href="../../../forum/index.php@showtopic=155" target="_blank">Удобные хостинги</a></td></tr><tr><td><a href="../../../forum/index.php@showtopic=33" target="_blank">Наши десктопы</a></td></tr>
+</table>
+</td></tr>
+<tr><td height="5px"><table border="0" cellspacing="0" cellpadding="0" style="width:100%;"><tr><td style="width:5px;height:5px;"><img src="_lef_2.gif" width="5px" height="5px" alt="" border="0"></td><td style="border-bottom:1px solid #E7E7E7;height:5px;font-size:4px;"><div style="width:1px; height:1px;" align=center><spacer type="block" width="1" height="1"></div></td><td style="width:5px;height:5px;"><img src="_lef_3.gif" width="5px" height="5px" alt="" border="0"></td></tr></table></td></tr></td></tr></table><!--/block left-->
+<!--space 10--><div style="width:1px; height:10px;" align=center><spacer type="block" width="1" height="10px"></div>
+
+<noindex><!--block left--><table border="0" cellspacing="0" cellpadding="0" style="width:100%;">
+<tr><td height="31px"><table border="0" cellspacing="0" cellpadding="0" style="width:100%;"><tr><td style="width:5px;height:31px;"><img src="_lef.gif" width="5px" height="31px" alt="" border="0"></td><td class="lef-tit">Реклама</td><td style="width:5px;height:31px;"><img src="_lef_.gif" width="5px" height="31px" alt="" border="0"></td></tr></table></td></tr>
+<tr><td class="lef-bod" align="center">
+
+
+<br><a target="_blank" href="../../../../www.sape.ru/r.98bd8c6ef5.php"><img src="../../../../img.sape.ru/bn/240_1.gif" border="0" width="200px"></a>
+
+<div align="right"><a href="../../../../all4site.ru/2008/07/ustanovka-koda-sape-na-ucoz/default.htm" rel="nofollow">Как установить код Sape на Ucoz?</a></div>
+
+</td></tr>
+<tr><td height="5px"><table border="0" cellspacing="0" cellpadding="0" style="width:100%;"><tr><td style="width:5px;height:5px;"><img src="_lef_2.gif" width="5px" height="5px" alt="" border="0"></td><td style="border-bottom:1px solid #E7E7E7;height:5px;font-size:4px;"><div style="width:1px; height:1px;" align=center><spacer type="block" width="1" height="1"></div></td><td style="width:5px;height:5px;"><img src="_lef_3.gif" width="5px" height="5px" alt="" border="0"></td></tr></table></td></tr></td></tr></table><!--/block left--></noindex>
+
+<!--/left--></td>
+<!--raz>>>--><td style="width:10px;">&nbsp;</td>
+<td valign="top">
+<!--in main-->
+
+
+
+<span id='dle-info'><table border="0" cellspacing="0" cellpadding="0" style="width:100%;" id="main">
+<tr><td><table border="0" cellspacing="0" cellpadding="0" style="width:100%;height:30px;"><td style="width:5px;"><img src="_c.gif" width="5px" height="30px" alt="" border="0"></td>
+<td class="cen-tit">Внимание, обнаружена ошибка</td>
+<td style="width:5px;"><img src="_c2.gif" width="5px" height="30px" alt="" border="0"></td></table></td></tr>
+<tr><td class="cen">
+К сожалению, данная страница для Вас не доступна: возможно, был изменен ее адрес или она была удалена. Пожалуйста, воспользуйтесь поиском.
+</td></tr>
+<tr><td style="height:5px;"><table border="0" cellspacing="0" cellpadding="0" style="width:100%;height:5px;"><td style="width:5px;"><img src="_cen_.gif" width="5px" height="5px" alt="" border="0"></td>
+<td style="border-bottom:1px solid #E7E7E7;"><div style="width:1px; height:1px;" align=center><spacer type="block" width="1" height="1px"></div></td>
+<td style="width:5px;"><img src="_cen.gif" width="5px" height="5px" alt="" border="0"></td></table></td></tr>
+</table>
+
+<!--space 10--><div style="width:1px; height:10px;" align=center><spacer type="block" width="1" height="10px"></div></span>
+<div id='dle-content'></div>
+
+
+
+<!--/in main--></td>
+<!--raz>>>--><td style="width:10px;">&nbsp;</td>
+<td style="width:200px;" valign="top">
+<!--right Block-->
+<table border="0" cellspacing="0" cellpadding="0" style="width:100%;" id="right">
+<tr><td><table border="0" cellspacing="0" cellpadding="0" style="width:100%;height:30px;"><td style="width:5px;"><img src="_c.gif" width="5px" height="30px" alt="" border="0"></td>
+<td class="cen-tit" style="height:30px;">Конец веба</td>
+<td style="width:5px;"><img src="_c2.gif" width="5px" height="30px" alt="" border="0"></td></table></td></tr>
+<tr><td class="cen" onDblClick="res()" title="Кликните мышкой 2 раза, что бы просмотреть рузультаты голосования">
+
+
+- Будет ли конец веба в 2012 году? <br><br>
+<div align="center" class='yesorno' id="myn"><a href="javascript://" class="yesorno3" id="yn1" onClick="ia_umnica('yes', this.id)">Поржать</a> <a href="javascript://" class="yesorno2" id="yn2" onclick="ia_umnica('foo', this.id)">Помолиться</a></div>
+
+<div id="myn2" style="display:none;padding:5px;background-color:#057AB3"><textarea id="text" cols="15" rows="3"></textarea><br><input type="button" value="ага" onClick="aga()"> <input type="button" value="отмена" onClick="can()"></div><div id="resv"></div>
+<br>
+
+<script>
+function res(){
+	var ajax = new dle_ajax();
+	ajax.onShow ('');
+	var varsString = "";
+	ajax.setVar("w","r");
+	ajax.requestFile = '../../../ia.php';
+	ajax.method = 'POST';
+	ajax.element = 'resv';
+	ajax.sendAJAX(varsString);
+}
+function ia_umnica(w,i){
+	var ajax = new dle_ajax();
+	ajax.onShow ('');
+	var varsString = "";
+	ajax.setVar("w",w);
+	ajax.requestFile = '../../../ia.php';
+	ajax.method = 'POST';
+	ajax.element = i;
+	ajax.sendAJAX(varsString);
+
+}
+function vivi()
+{
+document.getElementById('myn').style.display='none';
+document.getElementById('myn2').style.display='';
+}
+
+function can(){
+document.getElementById('myn').style.display='';
+document.getElementById('myn2').style.display='none';
+}
+function aga(){
+	var ajax = new dle_ajax();
+	ajax.onShow ('');
+	var varsString = "";
+ajax.setVar("text",document.getElementById('text').innerHTML);
+	ajax.setVar("w","other");
+	ajax.requestFile = '../../../ia.php';
+	ajax.method = 'POST';
+	ajax.element = 'myn2';
+	ajax.sendAJAX(varsString);
+}
+</script>
+</td></tr>
+<tr><td class="cen-tit" style="height:30px;border-right:1px solid #E7E7E7;border-left:1px solid #E7E7E7;">А так же</td></tr>
+<tr><td class="cen">
+<!--short--><div class="tags_">
+
+<div><a href="../../../dlephoto/default.htm">DLE Фотоальбомы</a></div>
+<div><a href="../../../faq/db/default.htm">FAQ - БД</a></div>
+
+
+
+</div>
+<!--/short-->
+</td></tr>
+<tr><td class="cen-tit" style="height:30px;border-right:1px solid #E7E7E7;border-left:1px solid #E7E7E7;">Есть что сказать?</td></tr>
+<tr><td class="cen">
+<!--short-->
+Теперь каждый из участников клуба админов имеет возможность добавить статью для публикации. 
+Как только статья станет популярной - Вы получите денежное вознаграждение.
+Всего 4 тысячи просмотров и 25 адекватных комментариев и Вы получите от 300 рублей.
+Диапазон тематики - от веба до веба.
+
+<div align="right">
+<a href="../../../forum/index.php@showtopic=375">Ваше мнение</a></div>
+
+<!--/short-->
+</td></tr>
+<tr><td class="cen-tit" style="height:30px;border-right:1px solid #E7E7E7;border-left:1px solid #E7E7E7;">На сайте</td></tr>
+<tr><td class="cen">
+<!--short-->
+Пользователей: 0<br />
+
+<script type="text/javascript" src="../../../engine/skins/default.js"></script>
+<table cellpaddong="0" cellspacing="0" border="0" class="onl_table"><tr><td colspan="2">Отсутствуют.</td></tr></table><br />
+Роботов: 2<br>
+Гостей: 5<br />
+Всех: 7
+<div align="right"><a href="../../../members.html">веб-люди</a></div>
+<!--/short-->
+</td></tr>
+<tr><td style="height:5px;"><table border="0" cellspacing="0" cellpadding="0" style="width:100%;height:5px;"><td style="width:5px;"><img src="_cen_.gif" width="5px" height="5px" alt="" border="0"></td>
+<td style="border-bottom:1px solid #E7E7E7;"><div style="width:1px; height:1px;" align=center><spacer type="block" width="1" height="1px"></div></td>
+<td style="width:5px;"><img src="_cen.gif" width="5px" height="5px" alt="" border="0"></td></table></td></tr>
+</table>
+
+
+
+<!--/right Blocks--></td>
+<td style="width:30px;"></td></tr>
+</table>
+
+
+<!--space 63-->
+<div style="width:1px; height:63px;" align=center><spacer type="block" width="1" height="63px"></div>
+
+
+<table border="0" cellspacing="0" cellpadding="0" style="width:100%;" class="foot">
+<tr><td style="width:30px;" rowspan="2"></td>
+<td class="bot" height="30px">© 2007-2009 Клуб Админов</td>
+<td width="50%" align="right" class="mar">
+
+<a href="../../../default.htm">Главная</a> 
+
+l   <a href="../../../about.html">О клубе</a>   l   <a href="../../../rules.html">Правила</a>   l   <a href="../../../@do=register">Регистрация</a>   l   <a href="../../../@do=feedback" style="margin-right:0">Обратная свзяь</a>
+
+l   <a href="../../../tags/default.htm" style="margin-right:0">Метки статей</a>
+
+</td>
+<td style="width:30px;" rowspan="2"></td></tr>
+<tr>
+<td style="color:#646464;" class="of" valign="top">Дизайн сайта <a href="../../../../artoflogic.ru/default.htm" rel="nofollow">www.artoflogic.ru</a></td>
+<td class="of" align="right">
+
+
+<!--LiveInternet counter--><script type="text/javascript"><!--
+document.write("<a href='../../../../www.liveinternet.ru/click' "+
+"target=_blank><img src='http://counter.yadro.ru/hit?t14.6;r"+
+escape(document.referrer)+((typeof(screen)=="undefined")?"":
+";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+";"+Math.random()+
+"' alt='' title='LiveInternet: показано число просмотров за 24"+
+" часа, посетителей за 24 часа и за сегодня' "+
+"border=0 width=88 height=31><\/a>")//--></script><!--/LiveInternet-->
+
+
+
+<script id="top100Counter" type="text/javascript" src="../../../../counter.rambler.ru/top100.jcn@1473851"></script><noscript><img src="../../../../counter.rambler.ru/top100.cnt@1473851" alt="" width="1" height="1" border="0"></noscript>
+
+<img  class=proz src="../../../../top100-images.rambler.ru/top100/banner-88x31-rambler-black2.gif" alt="Rambler's Top100" width="88" height="31" border="0">
+
+<a href="../../../../search.yaca.yandex.ru/yca/cy/ch/www.admin-club.ru"><img src="../../../../yandex.ru/cycounter/@www.admin-club.ru" border="0px"></a>
+
+
+</td>
+</tr>
+</table>
+
+<!--space 24-->
+<div style="width:1px; height:24px;" align=center><spacer type="block" width="1" height="24px"></div>
+
+<script language="javascript" type="text/javascript">
+<!--
+var dle_root       = '../../../';
+var dle_admin      = '';
+var dle_login_hash = '';
+var dle_skin       = 'Transformer';
+var dle_wysiwyg    = 'no';
+var quick_wysiwyg  = '0';
+var menu_short     = 'Быстрое редактирование';
+var menu_full      = 'Полное редактирование';
+var menu_profile   = 'Просмотр профиля';
+var menu_fnews     = 'Найти все публикации';
+var menu_fcomments = 'Найти все комментарии';
+var menu_send      = 'Отправить сообщение';
+var menu_uedit     = 'Админцентр';
+var dle_req_field  = 'Заполните все необходимые поля';
+var dle_del_agree  = 'Вы действительно хотите удалить? Данное действие невозможно будет отменить';
+var dle_del_news   = 'Удалить новость';
+var dle_login_hash = '';
+var allow_dle_delete_news   = false;
+//-->
+</script>
+<script type="text/javascript" src="../../../engine/ajax/menu.js"></script>
+<script type="text/javascript" src="../../../engine/ajax/dle_ajax.js"></script>
+<div id="loading-layer" style="display:none;font-family: Verdana;font-size: 11px;width:250px;background:#FFF;padding:10px;text-align:center;border:3px solid #00BDE6; color: #008FAE"><img src="../../../mobile.gif" align=left><b>Передача-прием данных&#133;</b><br>соединение должно быть активным<br /> <small>(Transfer - reception of the data; Ajax)</small>
+<br><br>
+<div style="border:1px solid #D9FDFF;margin:3px;padding:3px;" align=left>
+Как-то раз Билла Гейтса спросили:<br />
+- Какая из операционных систем, когда либо создававшихся человеком, самая лучшая?<br />
+- UNIX, - не задумываясь ответил Гейтс.<br />
+- Но... а как же Windows?<br />
+- Windows создал Бог, - скромно ответил тот
+</div>
+
+
+</div>
+<div id="busy_layer" style="visibility: hidden; display: block; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; background-color: gray; opacity: 0.1; -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=10)'; filter:progid:DXImageTransform.Microsoft.Alpha(opacity=10); "></div>
+<script type="text/javascript" src="../../../engine/ajax/js_edit.js"></script>
+
+</body></html>

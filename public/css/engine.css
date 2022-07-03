@@ -1,0 +1,444 @@
+form{padding:0;margin:0;}
+/* ==================== Вывод архива */
+
+.archives {
+	margin-top: 6px;
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+.archives a {
+	color: #43637e;
+}
+
+/* ==================== Цитата и скрытый текст */
+
+.title_quote {
+	color: #636363;
+	background-color: #f2f2f2;
+	border: 1px dotted #bebebe; 
+	border-bottom: 0;
+	font-weight: bold;
+	padding: 5px;
+}
+.quote {
+	color: #4D96BA;
+	background-color: #F0F9FC; 
+	border: 1px dotted #59A4C9;
+	text-align: left;
+	padding: 5px;
+-moz-border-radius:5px;
+}
+
+/* ==================== Тег SPOILER */
+
+.title_spoiler {
+	color: #636363;
+	background-color: #f2f2f2;
+	border: 1px dotted #bebebe; 
+	font-weight: bold;
+	padding: 5px;
+}
+.text_spoiler {
+	color: #757575;
+	background-color: #f2f2f2;
+	border: 1px dotted #bebebe;
+	border-top: 0;
+	text-align: justify;
+	padding: 5px;
+}
+
+.scriptcode{color: #4D96BA;
+	background-color: #E5F8FF; 
+	border: 1px dotted #59A4C9;
+text-align:left;padding: 5px;-moz-border-radius:5px;}
+
+/* ==================== Календарь */
+
+.weekday-active-v {
+	color: #4b73d4;
+}
+.day-active-v {
+	color: #4b73d4;
+}
+.calendar {
+
+color: #757575;
+font-family: verdana;
+font-size: 11px;
+
+}
+.calendar td, th {
+	 font-family: verdana;
+	 text-decoration: none;
+/* - */
+	 padding-left: 5px;
+ 	 padding-right: 4px;
+	 padding-top: 3px;
+	 padding-bottom: 4px;
+/* - */
+}
+.weekday {
+	color: #804040;
+	font-family: verdana;
+}
+.weekday-active {
+	color: #804040;
+	font-family: verdana;
+}
+.day-active {
+	color: #804040;
+	font-family: verdana;
+}
+.day-active a, .weekday-active a, .day-active-v a, .weekday-active-v a {
+	text-decoration: underline;
+}
+.monthlink {
+	color: #5078d6;
+	text-decoration: none;
+}
+
+/* ==================== Рейтинг статьи */
+
+.rating {
+	width: 90px;
+	height: 16px;
+}
+.unit-rating {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+	width: 90px;
+	height: 16px;
+	position: relative;
+	background-image: url(../dleimages/rating.gif);
+	background-position: top left;
+	background-repeat: repeat-x;
+}
+.unit-rating li {
+	text-indent: -90000px;
+	padding: 0px;
+	margin: 0px;
+	float: left;
+}
+.unit-rating li a {
+	display: block;
+	width: 18px;
+	height: 16px;
+	text-decoration: none;
+	text-indent: -9000px;
+	z-index: 18;
+	position: absolute;
+	padding: 0px;
+}
+.unit-rating li a:hover {
+	background-image: url(../dleimages/rating.gif);
+	background-position: left center;
+	z-index: 2;
+	left: 0px;
+}
+.unit-rating a.r1-unit { left: 0px; }
+.unit-rating a.r1-unit:hover { width: 18px; }
+.unit-rating a.r2-unit { left: 18px; }
+.unit-rating a.r2-unit:hover { width: 36px; }
+.unit-rating a.r3-unit { left: 36px; }
+.unit-rating a.r3-unit:hover { width: 54px; }
+.unit-rating a.r4-unit { left: 54px; }	
+.unit-rating a.r4-unit:hover { width: 72px; }
+.unit-rating a.r5-unit { left: 72px; }
+.unit-rating a.r5-unit:hover { width: 90px; }
+.unit-rating li.current-rating {
+	background-image: url(../dleimages/rating.gif);
+	background-position: left bottom;
+	position: absolute;
+	height: 16px;
+	display: block;
+	text-indent: -9000px;
+	z-index: 1;
+}
+
+/* ==================== BB коды */
+ 
+.bbcodes {
+	background-color: #ffffff;
+	border: 1px solid #e0e0e0;
+	color: #ffffff;
+	font-size: 11px;		/* ! */
+	font-family: tahoma;	/* ! */
+	/*  width: 120px;  */
+	height: 20px;
+	background-image: url(../images/dlet_bttn_bbcodes.gif);
+	background-repeat: repeat-x;
+	font-weight: bold;
+}
+
+
+.bbcodes_poll{background-color: #ffffff;
+	border: 1px solid #e0e0e0;
+	color: #ffffff;font-size: 11px;
+	font-family: verdana;
+	width: 120px;
+	height: 20px;
+	background-image: url(../images/dlet_bttn_bbcodes.gif);
+	background-repeat: repeat-x;
+}
+
+.editor_button {
+	float: left;
+	cursor: pointer;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+.editor_buttoncl {
+	float: left;
+	cursor: pointer;
+	padding-left: 1px;
+	padding-right: 1px;
+	border-left: 1px solid #bbbbbb;
+	border-right: 1px solid #bbbbbb;
+}
+.editbclose {
+	float: right;
+	cursor: pointer;
+}
+.editor_button select {
+	font-family: tahoma;
+	font-size: 11px;
+}
+.editor_button img {margin: 0; padding: 0;}
+.editbclose img {margin: 0; padding: 0;}
+.editor_button_brk img {margin: 0; padding: 0;}
+
+/* ==================== Дополнительные поля новостей */
+
+.xfields textarea {
+	color: #757575;		/* ! */
+	font-size: 11px;		/* ! */
+	font-family: tahoma;	/* ! */
+	background-image: url(../images/dlet_field_o.gif);
+	background-repeat: repeat-x;
+
+	width: 499px;
+	height: 86px;
+	border: 1px solid #e0e0e0;
+}
+.xfields input {
+	color: #757575;		/* ! */
+	font-size: 11px;		/* ! */
+	font-family: tahoma;	/* ! */
+	background-image: url(../images/dlet_field_o.gif);
+	background-repeat: repeat-x;
+
+	width: 250px;
+	height: 14px;
+	border: 1px solid #e0e0e0;
+}
+.xfields select {
+	color: #757575;		/* ! */
+	font-size: 11px;		/* ! */
+	font-family: tahoma;	/* ! */
+	background-image: url(../images/dlet_field_o.gif);
+	background-repeat: repeat-x;
+	border: 1px solid #e0e0e0;
+}
+
+/* ==================== Дополнительные поля профиля пользователей */
+
+.xprofile textarea {
+	color: #757575;		/* ! */
+	font-size: 11px;		/* ! */
+	font-family: tahoma;	/* ! */
+	background-image: url(../images/dlet_field_o.gif);
+	background-repeat: repeat-x;
+
+	width: 316px;
+	height: 86px;
+	border: 1px solid #e0e0e0;
+}
+.xprofile input {
+	color: #757575;		/* ! */
+	font-size: 11px;		/* ! */
+	font-family: tahoma;	/* ! */
+	background-image: url(../images/dlet_field_o.gif);
+	background-repeat: repeat-x;
+
+	width: 250px;
+	height: 14px;
+	border: 1px solid #e0e0e0;
+}
+
+/* ==================== Персональные сообщения */ 
+
+.pm_head {
+	font-size: 12px;		/* ! */
+	font-family: tahoma;	/* ! */ 
+}
+.pm_list {
+	color: #757575;
+}
+.pm_list a {
+	color: #4b73d4;
+}
+
+/* ==================== Выпадающее меню */
+
+#dropmenudiv {
+	border: 1px solid #ffffff;
+	border-bottom-width: 0;
+	font: normal 10px Verdana;
+	background-color: #6497ca;
+	line-height: 20px;
+	margin: 2px;
+	opacity: 0.95;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=95) progid:DXImageTransform.Microsoft.Shadow(color=#cacaca, direction=135, strength=3)";
+	filter: alpha(opacity=95, enabled=1) progid:DXImageTransform.Microsoft.Shadow(color=#cacaca, direction=135, strength=3);
+}
+
+#dropmenudiv a {
+	display: block;
+	text-indent: 3px;
+	text-decoration:none;
+	color: #ffffff;
+	background:#6497ca;
+	border: 1px solid #ffffff;
+	padding: 1px 0;
+	margin: 1px;
+	font-weight: bold;
+}
+
+#dropmenudiv a:hover {
+	background:#fdd08b;
+	color:#000000;
+}
+/* ==================== Опрос пользователей */
+
+.vote {
+	color: #757575;
+}
+
+/* ==================== Уведомление о получении новых PM */
+
+#newpm {
+	position: absolute;
+	width: 400px;
+	padding: 4px;
+	background-color: #fdfdfd;
+	border: 1px solid #bbbbbb;
+	font-family: verdana;
+	line-height: 135%;
+}
+#newpmheader {
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 2px;
+	height: 20px;
+	color: #636363;
+	font-weight: bold;
+	background-color: #b2c7f1;
+	font-family: verdana;
+	cursor: move;
+}
+#newpm a {
+	background: transparent;
+	color: #4b73d4;
+	text-decoration: none;
+}
+#newpm a:hover {
+	background: transparent;
+	color: #4b73d4;
+	text-decoration: underline;
+}
+
+/* ==================== Ссылка на скачивание прикрепленного файла */
+
+.attachment {
+	color: #808080;
+}
+
+/* ==================== Поиск по сайту и результаты поиска */
+
+.search {
+	color: #757575;
+	text-decoration: none;
+}
+.textin {
+
+		color: #757575;		/* ! */
+		font-size: 11px;		/* ! */
+		font-family: tahoma;	/* ! */
+		background-image: url(../images/dlet_field_o.gif);
+		background-repeat: repeat-x;
+		border: 1px solid #e0e0e0;
+	
+
+	text-decoration: none;
+}
+.sresult  {
+	text-align: justify;
+	font-weight: normal;
+	line-height: 16px;
+	font-size: 12px;
+	color: #757575;
+}
+
+
+/* ==================== Рамка расширенной формы поиска по сайту */
+
+	fieldset {
+		border: 1px solid #e0e0e0;
+		padding: 5px;
+		text-align: left;
+		font-size: 11px;		/* ! */
+		font-family: tahoma;}
+
+
+.highslide-active-anchor img {
+	visibility: hidden;
+}
+.highslide-image-blur {
+}
+.highslide-html {
+	background-color: white;
+}
+.highslide-html-content {
+	display: none;
+}
+.highslide-loading {
+    display: block;
+	color: white;
+	font-size: 9px;
+	font-weight: bold;
+    text-decoration: none;
+	padding: 3px;
+	border: 1px solid white;
+    background-color: black;
+}
+a.highslide-full-expand {
+	background: url(../dleimages/fullexpand.gif) no-repeat;
+	display: block;
+	margin: 0 10px 10px 0;
+	width: 34px;
+	height: 34px;
+}
+.highslide-footer {
+	height: 11px;
+}
+.highslide-footer .highslide-resize {
+	float: right;
+	height: 12px;
+	width: 11px;
+	background: url(../dleimages/resize.gif);
+}
+.highslide-resize {
+    cursor: nw-resize;
+}
+.highslide-display-block {
+    display: block;
+}
+.highslide-display-none {display: none;}
+
+
+.clouds_xsmall {font-size: 10px;}
+.clouds_small {font-size: 10px;}.
+.clouds_medium {font-size: 11px;}
+.clouds_large {	font-size: 11px;}
+.clouds_xlarge {font-size: 12px;}

@@ -1,0 +1,103 @@
+.main_menu{
+
+    float:left;
+    position:relative;
+    margin-top:135px;
+}
+.menu_ul2 li{
+    display:inline;
+}
+ul.menu_ul2{
+    margin:0;
+    padding:0;
+    font-size:11px;
+    font-weight:bold;
+    text-transform:uppercase;
+}
+ul.menu_ul2 a{
+    color:#4c3c3c;
+    text-decoration:none;
+}
+a.button_menu2{
+    background: transparent url('../img/menu_normal_l.png') no-repeat scroll top left;
+    display: block;
+    float: left;
+    height: 37px;
+    margin-right: 3px;
+    padding-right: 5px; /* sliding doors padding */
+    text-decoration: none;
+}
+a.button_menu2 span{
+    background: transparent url('../img/menu_normal_r.png') no-repeat right;
+    display: block;
+    height: 37px;
+    line-height: 37px;
+    margin-right: -6px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+/*Hover Menu*/
+a:hover.button_menu2{
+    background: transparent url('../img/menu_hoverl_l.png') no-repeat scroll top left;
+    display: block;
+    float: left;
+    height: 37px;
+    margin-right: 3px;
+    padding-right: 5px; /* sliding doors padding */
+    text-decoration: none;
+}
+a:hover.button_menu2 span{
+    background: transparent url('../img/menu_hoverl_r.png') no-repeat right;
+    display: block;
+    height: 37px;
+    line-height: 37px;
+    margin-right: -6px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+li.active a{
+    background: transparent url('') no-repeat scroll top left;
+    display: block;
+    float: left;
+    height: 37px;
+    margin-right: 3px;
+    padding-right: 5px; /* sliding doors padding */
+    text-decoration: none;
+}
+
+li.active span{
+    background: transparent url('') no-repeat right;
+    display: block;
+    height: 37px;
+    line-height: 37px;
+    margin-right: -6px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.prokrutka {
+height: 414px; /* высота нашего блока */
+width: 1100px; /* ширина нашего блока */
+background: #edf5f7; /* цвет фона, белый */
+border: 1px solid #C1C1C1; /* размер и цвет границы блока */
+overflow-y: scroll; /* прокрутка по вертикали */
+}
+
+.great_btn {
+ background: linear-gradient(to bottom, #0bc408 0%,#09a206 100%);
+ color: #fff;
+ font-size: 14px;
+ text-shadow: 0 1px 0 #757575;
+ padding: 4px 0 5px 0;
+ margin: 0;
+ cursor: pointer;
+ border: 0;
+ border-top: 1px solid #87c286;
+ border-right: 1px solid #0e780c;
+ border-left: 1px solid #0e780c;
+ border-bottom: 1px solid #0e780c;
+ box-shadow: 0 -1px 0 #0e780c, 0 1px 0 #fff;
+ width: 80px;
+ border-radius: 2px;
+}
+
