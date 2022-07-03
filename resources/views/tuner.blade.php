@@ -15,44 +15,7 @@
 </head>
 
 <body cz-shortcut-listen="true">
-    <table border="0" cellspacing="0" cellpadding="0" style="width:100%;">
-        <tbody>
-            <tr>
-                <td style="width:330px;" class="log">
-                </td>
-                <td style="width:30px;"></td>
-            </tr>
-        </tbody>
-    </table>
-    <div style="position: absolute; width: 900px; height: 47px; z-index: 3; left: 85px; top: -40px" id="layer3">
-        <ul id="nav">
-            <li><a href="http://ihtier.net/index.php?mode=tuner_setup#"><b>Ваш баланс</b></a>
-                <ul>
-                    <li><a href="http://ihtier.net/balance.php">Пополнить счет</a></li>
-                    <li><a href="http://ihtier.net/balance_history.php">История баланса</a></li>
-                </ul>
-            </li>
-            <li><a href="http://ihtier.net/index.php?mode=tuner_setup#"><b>Клиентам</b></a>
-                <ul>
-                    <li><a href="http://ihtier.net/index.php?mode=idx">Главная</a></li>
-                    <li><a href="http://ihtier.net/profile.php">Ваш профиль</a></li>
-                    <li><a href="http://ihtier.net/server_load.php">Выбор сервера</a></li>
-                    <li><a href="http://ihtier.net/packets.php">Купить пакет</a></li>
-                    <li><a href="http://ihtier.net/mypackets.php">Остановить пакет</a></li>
-                    <li><a href="http://ihtier.net/index.php?mode=tuner_setup">Получить настройки</a></li>
-                    <li><a href="http://ihtier.net/ports.php">Таблица портов</a></li>
-                </ul>
-            </li>
-            <li><a href="http://ihtier.net/dealer.php"><b>Диллерам</b></a>
-            </li>
-            <li><a href="http://ihtier.net/news.php"><b>Новости</b></a></li>
-            <li><a href="http://ihtier.net/tex_poderjka.php"><b>Тех подержка</b></a></li>
-            <li><a href="http://ihtier.net/help.php"><b>Помощь</b></a></li>
-            <li><a href="http://ihtier.net/rules.php"><b>Правила</b></a></li>
-            <li><a href="http://ihtier.net/logout.php"><b>Выход</b></a></li>
-        </ul>
-        <script src="./Качественный кардшаринг сервер, регистрация _ Авторизация_files/script.js"></script>
-    </div>
+    @include('includes.navbar')
     <table style="width:100%;" border="0" cellpadding="0" cellspacing="0">
         <tbody>
             <tr>
@@ -116,9 +79,9 @@
                                                     <table border="0" cellspacing="0" cellpadding="0" style="width:100%;">
                                                         <tbody>
                                                             <tr>
-                                                                <td style="width:5px;height:37px;"><img src="./Качественный кардшаринг сервер, регистрация _ Авторизация_files/_lef_1.gif" width="5px" height="37px" alt="" border="0"></td>
+                                                                <td style="width:5px;height:37px;"><img src="{{ asset('images/_lef_1.gif') }}" width="5px" height="37px" alt="" border="0"></td>
                                                                 <td class="lef-tit2"></td>
-                                                                <td style="width:5px;height:37px;"><img src="./Качественный кардшаринг сервер, регистрация _ Авторизация_files/_lef_1.gif" width="5px" height="37px" alt="" border="0"></td>
+                                                                <td style="width:5px;height:37px;"><img src="{{ asset('images/_lef_1.gif') }}" width="5px" height="37px" alt="" border="0"></td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
@@ -138,12 +101,12 @@
                                                             <center><b>
                                                                     <font color="#313a81">Плагины</font>
                                                                 </b></center>
-                                                            <font color="#313a81"><br>Скачать плагин <a target="_blank" href="http://ihtier.net/plugins/Oscam_1.20.rar">Oscam</a> с настройками под vip для тюнеров типа: GI-8120, Alien8900, GM990 .
-                                                                <br>Скачать плагин <a target="_blank" href="http://ihtier.net/plugins/wicardd_8120.rar">Wicardd-1.18</a> с готовыми настройками для тюнеров типа: GI-8120, Alien8900, spark .
-                                                                <br>Скачать плагин <a target="_blank" href="http://ihtier.net/plugins/wicardd_s.rar">Wicardd-1.18</a> с готовыми настройками для тюнеров типа: Openbox s серии
-                                                                <br>Скачать плагин <a target="_blank" href="http://ihtier.net/plugins/wicardd_sx.rar">Wicardd-1.18</a> с готовыми настройками для тюнеров типа: Openbox sx серии
-                                                                <br>Скачать программу <a target="_blank" href="http://ihtier.net/plugins/MPCS.rar">MPCS</a> с готовыми настройками для тюнеров типа: Openbox X-800, Orton 4100 .
-                                                                <br>Скачать программу <a target="_blank" href="http://ihtier.net/plugins/Camd357.rar">Сamd357</a> работает по протоколу Camd357 для тюнеров типа: Openbox X-800, Orton 4100 .
+                                                            <font color="#313a81"><br>Скачать плагин <a target="_blank" href="{{ asset('files/Oscam_1.20.rar') }}">Oscam</a> с настройками под vip для тюнеров типа: GI-8120, Alien8900, GM990 .
+                                                                <br>Скачать плагин <a target="_blank" href="{{ asset('files/wicardd_8120.rar') }}">Wicardd-1.18</a> с готовыми настройками для тюнеров типа: GI-8120, Alien8900, spark .
+                                                                <br>Скачать плагин <a target="_blank" href="{{ asset('files/wicardd_s.rar') }}">Wicardd-1.18</a> с готовыми настройками для тюнеров типа: Openbox s серии
+                                                                <br>Скачать плагин <a target="_blank" href="{{ asset('files/wicardd_sx.rar') }}">Wicardd-1.18</a> с готовыми настройками для тюнеров типа: Openbox sx серии
+                                                                <br>Скачать программу <a target="_blank" href="{{ asset('files/MPCS.rar') }}">MPCS</a> с готовыми настройками для тюнеров типа: Openbox X-800, Orton 4100 .
+                                                                <br>Скачать программу <a target="_blank" href="{{ asset('files/Camd357.rar') }}">Сamd357</a> работает по протоколу Camd357 для тюнеров типа: Openbox X-800, Orton 4100 .
                                                             </font>
                                                             <hr>
                                                         </fieldset>

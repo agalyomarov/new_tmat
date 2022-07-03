@@ -15,36 +15,8 @@
 </head>
 
 <body cz-shortcut-listen="true">
-    <div style="position: absolute; width: 900px; height: 47px; z-index: 3; left: 85px; top: -40px" id="layer3">
-        <ul id="nav">
-            <li><a href="{{ route('balance.index') }}"><b>Ваш баланс</b></a>
-                <ul>
-                    <li><a href="{{ route('balance.index') }}">Пополнить счет</a></li>
-                    <li><a href="http://ihtier.net/balance_history.php">История баланса</a></li>
-                </ul>
-            </li>
-            <li><a href="http://ihtier.net/balance.php#"><b>Клиентам</b></a>
-                <ul>
-                    <li><a href="http://ihtier.net/index.php?mode=idx">Главная</a></li>
-                    <li><a href="http://ihtier.net/profile.php">Ваш профиль</a></li>
-                    <li><a href="http://ihtier.net/server_load.php">Выбор сервера</a></li>
-                    <li><a href="http://ihtier.net/packets.php">Купить пакет</a></li>
-                    <li><a href="http://ihtier.net/mypackets.php">Остановить пакет</a></li>
-                    <li><a href="http://ihtier.net/index.php?mode=tuner_setup">Получить настройки</a></li>
-                    <li><a href="http://ihtier.net/ports.php">Таблица портов</a></li>
-                </ul>
-            </li>
+    @include('includes.navbar')
 
-            <li><a href="http://ihtier.net/dealer.php"><b>Диллерам</b></a>
-            </li>
-            <li><a href="http://ihtier.net/news.php"><b>Новости</b></a></li>
-            <li><a href="http://ihtier.net/tex_poderjka.php"><b>Тех подержка</b></a></li>
-            <li><a href="http://ihtier.net/help.php"><b>Помощь</b></a></li>
-            <li><a href="http://ihtier.net/rules.php"><b>Правила</b></a></li>
-            <li><a href="http://ihtier.net/logout.php"><b>Выход</b></a></li>
-
-        </ul>
-    </div>
 
     <table style="width:100%;" border="0" cellpadding="0" cellspacing="0">
         <tbody>
