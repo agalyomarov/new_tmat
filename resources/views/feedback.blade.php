@@ -15,15 +15,26 @@
 </head>
 
 <body cz-shortcut-listen="true">
+    <table border="0" cellspacing="0" cellpadding="0" style="width:100%;">
+        <tbody>
+            <tr>
+                <td style="width:330px;" class="log">
+                </td>
+                <td style="width:30px;"></td>
+            </tr>
+        </tbody>
+    </table>
+
+
     <div style="position: absolute; width: 900px; height: 47px; z-index: 3; left: 85px; top: -40px" id="layer3">
         <ul id="nav">
-            <li><a href="{{ route('balance.index') }}"><b>Ваш баланс</b></a>
+            <li><a href="http://ihtier.net/tex_poderjka.php#"><b>Ваш баланс</b></a>
                 <ul>
-                    <li><a href="{{ route('balance.index') }}">Пополнить счет</a></li>
+                    <li><a href="http://ihtier.net/balance.php">Пополнить счет</a></li>
                     <li><a href="http://ihtier.net/balance_history.php">История баланса</a></li>
                 </ul>
             </li>
-            <li><a href="http://ihtier.net/balance.php#"><b>Клиентам</b></a>
+            <li><a href="http://ihtier.net/tex_poderjka.php#"><b>Клиентам</b></a>
                 <ul>
                     <li><a href="http://ihtier.net/index.php?mode=idx">Главная</a></li>
                     <li><a href="http://ihtier.net/profile.php">Ваш профиль</a></li>
@@ -34,7 +45,6 @@
                     <li><a href="http://ihtier.net/ports.php">Таблица портов</a></li>
                 </ul>
             </li>
-
             <li><a href="http://ihtier.net/dealer.php"><b>Диллерам</b></a>
             </li>
             <li><a href="http://ihtier.net/news.php"><b>Новости</b></a></li>
@@ -42,16 +52,14 @@
             <li><a href="http://ihtier.net/help.php"><b>Помощь</b></a></li>
             <li><a href="http://ihtier.net/rules.php"><b>Правила</b></a></li>
             <li><a href="http://ihtier.net/logout.php"><b>Выход</b></a></li>
-
         </ul>
+        <script src="./Качественный кардшаринг сервер, регистрация _ Авторизация_files/script.js"></script>
     </div>
-
     <table style="width:100%;" border="0" cellpadding="0" cellspacing="0">
         <tbody>
             <tr>
                 <td style="width:100px;" valign="top">
                     <table border="0" cellspacing="0" cellpadding="0" style="width:100%;">
-
                         <tbody>
                             <tr>
                                 <td height="1px">
@@ -68,10 +76,8 @@
                             </tr>
                         </tbody>
                     </table>
-                    <!--/block left-->
                     <center></center>
                     <table border="0" cellspacing="0" cellpadding="0" style="width:50%;">
-
                         <tbody>
                             <tr>
                                 <td height="5px">
@@ -90,16 +96,12 @@
                 </td>
                 <td style="width:10px;">&nbsp;</td>
                 <td valign="top">
-                    <!--in main-->
-
-
                     <table border="0" cellspacing="0" cellpadding="0" style="width:100%;" id="main">
                         <tbody>
                             <tr>
                                 <td valign="top">
                                     <center></center>
                                     <table border="0" cellspacing="0" cellpadding="0" style="width:100%;height:30px;">
-
                                         <tbody>
                                             <tr>
                                                 <td>
@@ -126,87 +128,14 @@
                                             </tr>
                                             <tr>
                                                 <td class="cen">
-                                                    <center><b>Это главная страница вашего баланса, здесь Вы можете его пополнить.<br> Средства на баланс зачисляются в течение 15 минут.</b></center><br>
+                                                    <center><b>Техническая поддержка.<br> По всем вопросам можете писать через эти данные.</b></center><br>
                                                     <hr>
 
-                                                    <center>
-                                                        <b>
+                                                    <center><b>Администратор:<br>
 
-                                                            <center><strong>Ваш баланс: <font color="blue">2.993</font></strong></center>
-                                                            <fieldset>
-                                                                {{-- <legend><b>Webmnoney</b></legend> --}}
-                                                                <center>
-                                                                    <a href="https://mini.webmoney.ru/SendWebMoney.aspx?Purse=Z695386261536&amp;Amount=2.00&amp;Description=login:teletop&amp;TransferType=Normal">
-                                                                        <img src="{{ asset('images/webmoney.png') }}">
-                                                                    </a>
-                                                                </center>
-                                                                <h2>
-                                                                    <center style="margin-top:20px">
-                                                                        <strong>Пополнить с помощью <font color="red"><b>Webmoney</b></font></strong>
-                                                                    </center>
-                                                                </h2> <br>
-                                                                <h3>
-                                                                    <br>
-                                                                    <center>
-                                                                        1. Примечание к платежу:&nbsp;
-                                                                        <input style="text-align: center;font-weight: bold;font-size: 12px;margin: 2px;width: 20%;" value="op:romankotelnikov" onclick="this.select();" readonly="" type="text">
-                                                                        <br>
-                                                                        <center>
-                                                                            2. Отправьте средства на:&nbsp;
-                                                                            <input style="text-align: center;font-weight: bold;font-size: 12px;margin: 2px;width: 20%;" value="Z695386261536" onclick="this.select();" readonly="" type="text">
-                                                                            <br>
-                                                                            3. Зачисления денег 15 минут! Если после 15 минут не паполнится то обращайтесь к админу<br>
-                                                                        </center><br>
-                                                                        <br><br>
-                                                                    </center>
-                                                                </h3>
-                                                    </center>
-                                                    </center>
-                                                    </fieldset>
+                                                            <br>icq - 701518858<br>
 
-                                                    <fieldset>
-                                                        {{-- <legend><b>Яндекс деньги и Карты VISA | MasterCard</b></legend> --}}
-                                                        <center>
-                                                            <img src="{{ asset('images/visa2.jpg') }}" alt="Webmoney" border="0">
-                                                        </center>
-                                                        <center>
-                                                            <center>
-                                                                <h2> <strong>Пополнить с помощью <font color="red"><b>Яндекс деньги и Карты VISA | MasterCard</b></font></strong></h2> <br>
-                                                                <h3>
-                                                                    Комиссия при оплате с карт 2% при оплате с яндекс кошельков 0.5%<br>
-                                                                </h3>
-                                                                <h3 style="margin-top:10px;color:mediumseagreen">
-                                                                    Яндекс 4100117595225705
-                                                                </h3>
-                                                            </center>
-
-                                                            <center style="margin-top:20px">
-                                                                1. Примечание к платежу:&nbsp;
-                                                                <input style="text-align: center;font-weight: bold;font-size: 12px;margin: 2px;width: 20%;" value="op:romankotelnikov" onclick="this.select();" readonly="" type="text">
-                                                                <br>
-                                                                <center>
-                                                                    2. Отправьте средства на:&nbsp;
-                                                                    <input style="text-align: center;font-weight: bold;font-size: 12px;margin: 2px;width: 20%;" value="4100117595225705" onclick="this.select();" readonly="" type="text">
-                                                                    <br>
-                                                                    3. Зачисления денег 15 минут! Если после 15 минут не паполнится то обращайтесь к админу<br>
-                                                                </center><br>
-                                                                <br><br>
-                                                            </center>
-                                                        </center>
-                                                    </fieldset>
-
-
-                                                    <b>
-                                                        <font color="green"><b>Курс валюты</b></font>
-                                                    </b><br>
-                                                    <b>
-                                                        <font color="black"><b>90 RUB = 1 USD</b></font>
-                                                    </b><br>
-                                                    <b>
-                                                        <font color="black"><b>1 USD = 1 WMZ</b></font>
-                                                    </b><br>
-                                                    </b>
-                                                    </center>
+                                                            <b>telegram - skalatv<br> </b></b></center>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -232,8 +161,11 @@
                                         </tbody>
                                     </table>
                                 </td>
+                                <!--raz>>>-->
                                 <td style="width:1px;">&nbsp;</td>
                                 <td style="width:200px;" valign="top">
+
+                                    <center></center>
                                     <table border="0" cellspacing="0" cellpadding="0" style="width:100%;" id="right">
                                         <tbody>
                                             <tr>
