@@ -5,25 +5,13 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="Cache-Control" content="no-cache">
     <link rel="stylesheet" href="{{ asset('css/style2.css') }}">
-    <title>Качественный кардшаринг сервер, регистрация : Авторизация</title>
+    <title> Качественный кардшаринг сервер, регистрация: Авторизация </title>
     <link rel="stylesheet" href="{{ asset('css/style1.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style_new.css') }}">
     <link rel="stylesheet" href="{{ asset('css/engine.css') }}">
     <link rel="stylesheet" href="{{ asset('css/desing.css') }}">
     <link href="{{ asset('css/layout.css') }}" rel="stylesheet">
     <link href="{{ asset('css/menu.css') }}" rel="stylesheet">
-    <style>
-        .cen {
-            text-align: left;
-        }
-
-        .error {
-            color: red;
-            font-size: 14px;
-            text-align: left;
-            margin-bottom: 10px;
-        }
-    </style>
 </head>
 
 <body cz-shortcut-listen="true">
@@ -33,6 +21,7 @@
             <tr>
                 <td style="width:100px;" valign="top">
                     <table border="0" cellspacing="0" cellpadding="0" style="width:100%;">
+
                         <tbody>
                             <tr>
                                 <td height="1px">
@@ -101,54 +90,106 @@
                                             </tr>
                                             <tr>
                                                 <td class="cen">
-                                                    @foreach ($errors->getMessages() as $error)
-                                                        <div class="error">
-                                                            {{ $error[0] }}
-                                                        </div>
-                                                    @endforeach
-                                                    <form action="{{ route('profile.update') }}" method="post">
-                                                        @csrf
-                                                        @method('PUT')
-                                                        <input type="hidden" name="id" value="{{ $dealer->id }}">
-                                                        <h2>Ваш профиль</h2>
-                                                        <table>
+                                                    <center>
+                                                        <h1>Информация о пакете</h1>
+                                                    </center>
+                                                    <table>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td><strong>
+                                                                        <h2>Название пакета: <font color="red">Big Bang 52E</font>
+                                                                        </h2>
+                                                                    </strong></td>
+                                                                <td>
+
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan="2">
+                                                                    <strong>
+                                                                        <img width="170" height="100" src="{{ asset('images/alemtv52.jpg') }}">
+                                                                    </strong>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <fieldset>
+                                                                        <legend>Описание пакета</legend>
+                                                                        <br>
+                                                                    </fieldset>
+                                                                </td>
+                                                                <td>
+
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <fieldset>
+                                                                        <legend>Суточная цена</legend>
+                                                                        0.00660$<br>
+                                                                    </fieldset>
+                                                                </td>
+                                                                <td>
+
+                                                                </td>
+                                                            </tr>
+
+                                                        </tbody>
+                                                    </table>
+
+                                                    <fieldset>
+                                                        <legend>Кодировки для пакета</legend>
+                                                        <p>&nbsp;</p>
+                                                        <table class="list" width="100%" style="border-collapse: collapse" border="1" bordercolor="#C0C0C0">
                                                             <tbody>
                                                                 <tr>
-                                                                    <td><strong>Логин</strong></td>
-                                                                    <td>
-                                                                        <input type="text" class="input_200" name="login" value="{{ $dealer->login }}">
-
-                                                                    </td>
+                                                                    <th width="773">
+                                                                        <p align="center"> <a href="javascript:void()">
+                                                                                Кодировка
+                                                                            </a>
+                                                                        </p>
+                                                                    </th>
+                                                                    <th width="773">
+                                                                        <p align="center"> <a href="javascript:void()">
+                                                                                Пакет
+                                                                            </a>
+                                                                        </p>
+                                                                    </th>
+                                                                    <th width="773">
+                                                                        <p align="center"> <a href="javascript:void()">
+                                                                                Порт
+                                                                            </a>
+                                                                        </p>
+                                                                    </th>
+                                                                    <th width="773">
+                                                                        <p align="center"> <a href="javascript:void()">
+                                                                                Название
+                                                                            </a>
+                                                                        </p>
+                                                                    </th>
                                                                 </tr>
-                                                                <tr>
-                                                                    <td><strong>Пароль</strong></td>
-                                                                    <td>
-                                                                        <input type="text" class="input_200" name="password" value="{{ $dealer->password }}">
-                                                                        </b>
+                                                                <tr onmouseover="this.style.backgroundColor=&#39;#D2E0F0&#39;;" onmouseout="this.style.backgroundColor=&#39;#ffffff&#39;;" class="norm">
+                                                                    <td width="773">
+                                                                        <p align="center"> 0B00
+                                                                        </p>
                                                                     </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><strong>Скидка:</strong></td>
-                                                                    <td>
-                                                                        {{ $dealer->discount }}%
+                                                                    <td width="773">
+                                                                        <p align="center"> 000000
+                                                                        </p>
                                                                     </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><strong>Эл. почта</strong></td>
-                                                                    <td>
-                                                                        <input type="text" class="input_200" name="email" value="{{ $dealer->email }}">
+                                                                    <td width="773">
+                                                                        <p align="center"> 720
+                                                                        </p>
                                                                     </td>
-                                                                </tr>
-                                                                <tr>
-
-                                                                <tr>
-                                                                    <td colspan="2">
-                                                                        <input class="btn" type="submit" name="save" value="Сохранить">
+                                                                    <td width="773">
+                                                                        <p align="center"> Big Bang 52E
+                                                                        </p>
                                                                     </td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
-                                                    </form>
+
+                                                    </fieldset>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -174,6 +215,7 @@
                                         </tbody>
                                     </table>
                                 </td>
+                                <!--raz>>>-->
                                 <td style="width:1px;">&nbsp;</td>
                                 <td style="width:200px;" valign="top">
 

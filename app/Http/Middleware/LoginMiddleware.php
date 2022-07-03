@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Dealer;
 use Closure;
 use Illuminate\Http\Request;
 
@@ -16,6 +17,14 @@ class LoginMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        return $next($request);
+        $data = $request->session()->all();
+        if (isset($data['login']) && isset($data['password'])) {
+            $dealer = Dealer::where(['login' => $data['login'], 'password' => $data['password']])->first();
+            if (!$dealer) {
+                return redirect()->route('login.index');
+            }
+            return $next($request);
+        }
+        return redirect()->route('login.index');
     }
 }

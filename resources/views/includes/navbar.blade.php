@@ -23,6 +23,6 @@
            <li><a href="{{ route('feedback.index') }}"><b>Тех подержка</b></a></li>
            <li><a href="{{ route('help.index') }}"><b>Помощь</b></a></li>
            <li><a href="{{ route('rules.index') }}"><b>Правила</b></a></li>
-           <li><a href="javascript:void(0);"><b>Выход</b></a></li>
+           <li><a href="{{ route('login.logout') }}"><b>Выход</b></a></li>
        </ul>
    </div>

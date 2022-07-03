@@ -10,4 +10,9 @@ class PacketController extends Controller
     {
         return view('packet');
     }
+
+    public function view($packet)
+    {
+        return view('packets.' . $packet);
+    }
 }

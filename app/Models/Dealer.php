@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Dealer extends Model
 {
-    use HasFactory;
+    protected $table = 'dealers';
+    protected $guarded = [];
+    public $timestamps = false;
 }

@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('password');
             $table->string('email')->nullable();
             $table->decimal('balance')->default(0.00);
+            $table->unsignedBigInteger('discount')->default(0);
+            $table->unique('login', 'login_uniquix');
         });
     }
 

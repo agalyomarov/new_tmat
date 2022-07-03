@@ -143,23 +143,12 @@
                                                                                 <th width="98">
                                                                                     Цена/мес.
                                                                                 </th>
-                                                                                <th width="311">
-                                                                                    <p align="right">
-                                                                                        <span lang="ru">Куплен </span>&nbsp;
-                                                                                        <span lang="ru">с :</span>
-                                                                                    </p>
-                                                                                </th>
-                                                                                <th>
-                                                                                    <p align="right"><span lang="ru">Куплен</span> до
-                                                                                        <span lang="ru">:</span>
-                                                                                    </p>
-                                                                                </th>
                                                                                 <th>
                                                                                     Описание
                                                                                 </th>
                                                                             </tr>
                                                                             <tr class="norm">
-                                                                                <td>
+                                                                                <td style="text-align:center;">
                                                                                     <input type="checkbox" value="Big Bang 52E">
                                                                                 </td>
                                                                                 <td>
@@ -173,23 +162,12 @@
                                                                                     <b>0.20
                                                                                         $</b>
                                                                                 </td>
-                                                                                <td align="justify">
-                                                                                    <p align="center"><b>
-                                                                                            <font size="2"> </font>
-                                                                                        </b></p>
-                                                                                </td>
-                                                                                <td align="justify" width="311">
-                                                                                    <p align="center"><b>
-                                                                                            <font size="2"> </font>
-                                                                                        </b>
-                                                                                    </p>
-                                                                                </td>
                                                                                 <td>
-                                                                                    <a href="http://ihtier.net/packet_group_info.php?packet_group=Big+Bang+52E"><b> Подробнее... </b></a>
+                                                                                    <a href="{{ route('packet.view', 'big_bang_52e') }}"><b> Подробнее... </b></a>
                                                                                 </td>
                                                                             </tr>
                                                                             <tr class="alt">
-                                                                                <td>
+                                                                                <td style="text-align:center;">
                                                                                     <input type="checkbox" value="Big Bang 52E - Telekarta 85E">
                                                                                 </td>
                                                                                 <td>
@@ -203,23 +181,12 @@
                                                                                     <b>0.30
                                                                                         $</b>
                                                                                 </td>
-                                                                                <td align="justify">
-                                                                                    <p align="center"><b>
-                                                                                            <font size="2"> </font>
-                                                                                        </b></p>
-                                                                                </td>
-                                                                                <td align="justify" width="311">
-                                                                                    <p align="center"><b>
-                                                                                            <font size="2"> </font>
-                                                                                        </b>
-                                                                                    </p>
-                                                                                </td>
                                                                                 <td>
-                                                                                    <a href="http://ihtier.net/packet_group_info.php?packet_group=Big+Bang+52E+-+Telekarta+85E"><b> Подробнее... </b></a>
+                                                                                    <a href="{{ route('packet.view', 'big_bang_52e_telecarta_85e') }}"><b> Подробнее... </b></a>
                                                                                 </td>
                                                                             </tr>
                                                                             <tr class="norm">
-                                                                                <td>
+                                                                                <td style="text-align:center;">
                                                                                     <input type="checkbox" value="Evropa_all">
                                                                                 </td>
                                                                                 <td>
@@ -233,23 +200,12 @@
                                                                                     <b>0.50
                                                                                         $</b>
                                                                                 </td>
-                                                                                <td align="justify">
-                                                                                    <p align="center"><b>
-                                                                                            <font size="2"> </font>
-                                                                                        </b></p>
-                                                                                </td>
-                                                                                <td align="justify" width="311">
-                                                                                    <p align="center"><b>
-                                                                                            <font size="2"> </font>
-                                                                                        </b>
-                                                                                    </p>
-                                                                                </td>
                                                                                 <td>
-                                                                                    <a href="http://ihtier.net/packet_group_info.php?packet_group=Evropa_all"><b> Подробнее... </b></a>
+                                                                                    <a href="{{ route('packet.view', 'europa_all') }}"><b> Подробнее... </b></a>
                                                                                 </td>
                                                                             </tr>
                                                                             <tr class="alt">
-                                                                                <td>
+                                                                                <td style="text-align:center;">
                                                                                     <input type="checkbox" value="NTV Plus 36E - Telekarta 85 HD">
                                                                                 </td>
                                                                                 <td>
@@ -263,23 +219,12 @@
                                                                                     <b>0.40
                                                                                         $</b>
                                                                                 </td>
-                                                                                <td align="justify">
-                                                                                    <p align="center"><b>
-                                                                                            <font size="2"> </font>
-                                                                                        </b></p>
-                                                                                </td>
-                                                                                <td align="justify" width="311">
-                                                                                    <p align="center"><b>
-                                                                                            <font size="2"> </font>
-                                                                                        </b>
-                                                                                    </p>
-                                                                                </td>
                                                                                 <td>
-                                                                                    <a href="http://ihtier.net/packet_group_info.php?packet_group=NTV+Plus+36E+-+Telekarta+85+HD"><b> Подробнее... </b></a>
+                                                                                    <a href="{{ route('packet.view', 'ntv_plus_36e_telecarta_85hd') }}"><b> Подробнее... </b></a>
                                                                                 </td>
                                                                             </tr>
                                                                             <tr class="norm">
-                                                                                <td>
+                                                                                <td style="text-align:center;">
                                                                                     <input type="checkbox" value="NTV Plus_36 - Tricolor_36 - Klubnika_13 HD">
                                                                                 </td>
                                                                                 <td>
@@ -293,23 +238,12 @@
                                                                                     <b>0.40
                                                                                         $</b>
                                                                                 </td>
-                                                                                <td align="justify">
-                                                                                    <p align="center"><b>
-                                                                                            <font size="2"> </font>
-                                                                                        </b></p>
-                                                                                </td>
-                                                                                <td align="justify" width="311">
-                                                                                    <p align="center"><b>
-                                                                                            <font size="2"> </font>
-                                                                                        </b>
-                                                                                    </p>
-                                                                                </td>
                                                                                 <td>
-                                                                                    <a href="http://ihtier.net/packet_group_info.php?packet_group=NTV+Plus_36+-+Tricolor_36+-+Klubnika_13+HD"><b> Подробнее... </b></a>
+                                                                                    <a href="{{ route('packet.view', 'ntv_plus_36_tricolor_36_klubnika_13hd') }}"><b> Подробнее... </b></a>
                                                                                 </td>
                                                                             </tr>
                                                                             <tr class="alt">
-                                                                                <td>
+                                                                                <td style="text-align:center;">
                                                                                     <input type="checkbox" value="NTV Plus_36 - Tricolor_36 HD">
                                                                                 </td>
                                                                                 <td>
@@ -323,23 +257,12 @@
                                                                                     <b>0.30
                                                                                         $</b>
                                                                                 </td>
-                                                                                <td align="justify">
-                                                                                    <p align="center"><b>
-                                                                                            <font size="2"> </font>
-                                                                                        </b></p>
-                                                                                </td>
-                                                                                <td align="justify" width="311">
-                                                                                    <p align="center"><b>
-                                                                                            <font size="2"> </font>
-                                                                                        </b>
-                                                                                    </p>
-                                                                                </td>
                                                                                 <td>
                                                                                     <a href="http://ihtier.net/packet_group_info.php?packet_group=NTV+Plus_36+-+Tricolor_36+HD"><b> Подробнее... </b></a>
                                                                                 </td>
                                                                             </tr>
                                                                             <tr class="norm">
-                                                                                <td>
+                                                                                <td style="text-align:center;">
                                                                                     <input type="checkbox" value="NTV Plus_56 - Tricolor_56 HD">
                                                                                 </td>
                                                                                 <td>
@@ -353,23 +276,12 @@
                                                                                     <b>0.30
                                                                                         $</b>
                                                                                 </td>
-                                                                                <td align="justify">
-                                                                                    <p align="center"><b>
-                                                                                            <font size="2"> </font>
-                                                                                        </b></p>
-                                                                                </td>
-                                                                                <td align="justify" width="311">
-                                                                                    <p align="center"><b>
-                                                                                            <font size="2"> </font>
-                                                                                        </b>
-                                                                                    </p>
-                                                                                </td>
                                                                                 <td>
                                                                                     <a href="http://ihtier.net/packet_group_info.php?packet_group=NTV+Plus_56+-+Tricolor_56+HD"><b> Подробнее... </b></a>
                                                                                 </td>
                                                                             </tr>
                                                                             <tr class="alt">
-                                                                                <td>
+                                                                                <td style="text-align:center;">
                                                                                     <input type="checkbox" value="Setanta Sports 31E HD">
                                                                                 </td>
                                                                                 <td>
@@ -383,17 +295,6 @@
                                                                                     <b>0.30
                                                                                         $</b>
                                                                                 </td>
-                                                                                <td align="justify">
-                                                                                    <p align="center"><b>
-                                                                                            <font size="2"> </font>
-                                                                                        </b></p>
-                                                                                </td>
-                                                                                <td align="justify" width="311">
-                                                                                    <p align="center"><b>
-                                                                                            <font size="2"> </font>
-                                                                                        </b>
-                                                                                    </p>
-                                                                                </td>
                                                                                 <td>
                                                                                     <a href="http://ihtier.net/packet_group_info.php?packet_group=Setanta+Sports+31E+HD"><b> Подробнее... </b></a>
                                                                                 </td>
@@ -402,7 +303,7 @@
                                                                                 packet_group_prices["Sky Germany 19E HD"] = 0.01000;
                                                                             </script>
                                                                             <tr class="norm">
-                                                                                <td>
+                                                                                <td style="text-align:center;">
                                                                                     <input type="checkbox" value="Sky Germany 19E HD">
                                                                                 </td>
                                                                                 <td>
@@ -416,17 +317,6 @@
                                                                                     <b>0.30
                                                                                         $</b>
                                                                                 </td>
-                                                                                <td align="justify">
-                                                                                    <p align="center"><b>
-                                                                                            <font size="2"> </font>
-                                                                                        </b></p>
-                                                                                </td>
-                                                                                <td align="justify" width="311">
-                                                                                    <p align="center"><b>
-                                                                                            <font size="2"> </font>
-                                                                                        </b>
-                                                                                    </p>
-                                                                                </td>
                                                                                 <td>
                                                                                     <a href="http://ihtier.net/packet_group_info.php?packet_group=Sky+Germany+19E+HD"><b> Подробнее... </b></a>
                                                                                 </td>
@@ -435,7 +325,7 @@
                                                                                 packet_group_prices["Telekarta TV Full HD"] = 0.00660;
                                                                             </script>
                                                                             <tr class="alt">
-                                                                                <td>
+                                                                                <td style="text-align:center;">
                                                                                     <input type="checkbox" value="Telekarta TV Full HD">
                                                                                 </td>
                                                                                 <td>
@@ -449,17 +339,6 @@
                                                                                     <b>0.20
                                                                                         $</b>
                                                                                 </td>
-                                                                                <td align="justify">
-                                                                                    <p align="center"><b>
-                                                                                            <font size="2"> </font>
-                                                                                        </b></p>
-                                                                                </td>
-                                                                                <td align="justify" width="311">
-                                                                                    <p align="center"><b>
-                                                                                            <font size="2"> </font>
-                                                                                        </b>
-                                                                                    </p>
-                                                                                </td>
                                                                                 <td>
                                                                                     <a href="http://ihtier.net/packet_group_info.php?packet_group=Telekarta+TV+Full+HD"><b> Подробнее... </b></a>
                                                                                 </td>
@@ -468,7 +347,7 @@
                                                                                 packet_group_prices["Telekarta TV HD  -  Klubnika_13 HD"] = 0.01000;
                                                                             </script>
                                                                             <tr class="norm">
-                                                                                <td>
+                                                                                <td style="text-align:center;">
                                                                                     <input type="checkbox" value="Telekarta TV HD  -  Klubnika_13 HD">
                                                                                 </td>
                                                                                 <td>
@@ -482,23 +361,12 @@
                                                                                     <b>0.30
                                                                                         $</b>
                                                                                 </td>
-                                                                                <td align="justify">
-                                                                                    <p align="center"><b>
-                                                                                            <font size="2"> </font>
-                                                                                        </b></p>
-                                                                                </td>
-                                                                                <td align="justify" width="311">
-                                                                                    <p align="center"><b>
-                                                                                            <font size="2"> </font>
-                                                                                        </b>
-                                                                                    </p>
-                                                                                </td>
                                                                                 <td>
                                                                                     <a href="http://ihtier.net/packet_group_info.php?packet_group=Telekarta+TV+HD++-++Klubnika_13+HD"><b> Подробнее... </b></a>
                                                                                 </td>
                                                                             </tr>
                                                                             <tr class="alt">
-                                                                                <td>
+                                                                                <td style="text-align:center;">
                                                                                     <input type="checkbox" value="UPC Direct 1w - Sky19 - Sky28 HD">
                                                                                 </td>
                                                                                 <td>
@@ -512,17 +380,6 @@
                                                                                     <b>0.40
                                                                                         $</b>
                                                                                 </td>
-                                                                                <td align="justify">
-                                                                                    <p align="center"><b>
-                                                                                            <font size="2"> </font>
-                                                                                        </b></p>
-                                                                                </td>
-                                                                                <td align="justify" width="311">
-                                                                                    <p align="center"><b>
-                                                                                            <font size="2"> </font>
-                                                                                        </b>
-                                                                                    </p>
-                                                                                </td>
                                                                                 <td>
                                                                                     <a href="http://ihtier.net/packet_group_info.php?packet_group=UPC+Direct+1w+-+Sky19+-+Sky28+HD"><b> Подробнее... </b></a>
                                                                                 </td>
@@ -531,7 +388,7 @@
                                                                                 packet_group_prices["Vip_all"] = 0.02000;
                                                                             </script>
                                                                             <tr class="norm">
-                                                                                <td>
+                                                                                <td style="text-align:center;">
                                                                                     <input type="checkbox" value="Vip_all">
                                                                                 </td>
                                                                                 <td>
@@ -545,23 +402,12 @@
                                                                                     <b>0.60
                                                                                         $</b>
                                                                                 </td>
-                                                                                <td align="justify">
-                                                                                    <p align="center"><b>
-                                                                                            <font size="2"> </font>
-                                                                                        </b></p>
-                                                                                </td>
-                                                                                <td align="justify" width="311">
-                                                                                    <p align="center"><b>
-                                                                                            <font size="2"> </font>
-                                                                                        </b>
-                                                                                    </p>
-                                                                                </td>
                                                                                 <td>
                                                                                     <a href="http://ihtier.net/packet_group_info.php?packet_group=Vip_all"><b> Подробнее... </b></a>
                                                                                 </td>
                                                                             </tr>
                                                                             <tr class="alt">
-                                                                                <td>
+                                                                                <td style="text-align:center;">
                                                                                     <input type="checkbox" value="Vip_Восток">
                                                                                 </td>
                                                                                 <td>
@@ -574,17 +420,6 @@
                                                                                 <td align="center" width="70">
                                                                                     <b>0.50
                                                                                         $</b>
-                                                                                </td>
-                                                                                <td align="justify">
-                                                                                    <p align="center"><b>
-                                                                                            <font size="2"> </font>
-                                                                                        </b></p>
-                                                                                </td>
-                                                                                <td align="justify" width="311">
-                                                                                    <p align="center"><b>
-                                                                                            <font size="2"> </font>
-                                                                                        </b>
-                                                                                    </p>
                                                                                 </td>
                                                                                 <td>
                                                                                     <a href="http://ihtier.net/packet_group_info.php?packet_group=Vip_%D0%92%D0%BE%D1%81%D1%82%D0%BE%D0%BA"><b> Подробнее... </b></a>

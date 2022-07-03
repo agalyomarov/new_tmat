@@ -22,43 +22,6 @@
         <tbody>
             <tr>
                 <td style="width:100px;" valign="top">
-                    <table border="0" cellspacing="0" cellpadding="0" style="width:100%;">
-
-                        <tbody>
-                            <tr>
-                                <td height="1px">
-                                    <table border="0" cellspacing="0" cellpadding="0" style="width:50%;">
-                                        <tbody>
-                                            <tr>
-                                                <td style="width:5px;height:5px;"></td>
-                                                <td style="border-bottom:7px color:white;height:1px;font-size:1px;"></td>
-                                                <td style="width:5px;height:5px;"></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <!--/block left-->
-                    <center></center>
-                    <table border="0" cellspacing="0" cellpadding="0" style="width:50%;">
-
-                        <tbody>
-                            <tr>
-                                <td height="5px">
-                                    <table border="0" cellspacing="0" cellpadding="0" style="width:100%;">
-                                        <tbody>
-                                            <tr>
-                                                <td style="border-bottom:1px color:white;height:5px;font-size:4px;"></td>
-                                                <td style="width:5px;height:5px;"></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
                 </td>
                 <td style="width:10px;">&nbsp;</td>
                 <td valign="top">
@@ -104,7 +67,7 @@
                                                     <center>
                                                         <b>
 
-                                                            <center><strong>Ваш баланс: <font color="blue">2.993</font></strong></center>
+                                                            <center><strong>Ваш баланс: <font color="blue">{{ $dealer->balance }}</font></strong></center>
                                                             <fieldset>
                                                                 {{-- <legend><b>Webmnoney</b></legend> --}}
                                                                 <center>
@@ -121,7 +84,7 @@
                                                                     <br>
                                                                     <center>
                                                                         1. Примечание к платежу:&nbsp;
-                                                                        <input style="text-align: center;font-weight: bold;font-size: 12px;margin: 2px;width: 20%;" value="op:romankotelnikov" onclick="this.select();" readonly="" type="text">
+                                                                        <input style="text-align: center;font-weight: bold;font-size: 12px;margin: 2px;width: 20%;" value="op:{{ $dealer->login }}" onclick="this.select();" readonly="" type="text">
                                                                         <br>
                                                                         <center>
                                                                             2. Отправьте средства на:&nbsp;
@@ -154,7 +117,7 @@
 
                                                             <center style="margin-top:20px">
                                                                 1. Примечание к платежу:&nbsp;
-                                                                <input style="text-align: center;font-weight: bold;font-size: 12px;margin: 2px;width: 20%;" value="op:romankotelnikov" onclick="this.select();" readonly="" type="text">
+                                                                <input style="text-align: center;font-weight: bold;font-size: 12px;margin: 2px;width: 20%;" value="op:{{ $dealer->login }}" onclick="this.select();" readonly="" type="text">
                                                                 <br>
                                                                 <center>
                                                                     2. Отправьте средства на:&nbsp;
