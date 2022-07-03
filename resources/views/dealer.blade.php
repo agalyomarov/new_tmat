@@ -116,24 +116,6 @@
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td><strong>Пароль (повторно)</strong></td>
-                                                                        <td>
-                                                                            <input type="text" class="input_200" maxlength="15" name="password_confirm">
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td><strong>Эл. почта<font color="red"> *</font> </strong></td>
-                                                                        <td>
-                                                                            <input type="text" class="input_200" maxlength="30" name="email" value="">
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td><strong>Вход запрещен<font color="red"> **</font></strong></td>
-                                                                        <td>
-                                                                            <input type="checkbox" name="disabled" value="1">
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
                                                                         <td><strong>Номер сервера</strong></td>
                                                                         <td>
                                                                             <select name="server_n">

@@ -116,14 +116,14 @@
                                                         <br><br>
                                                         <strong style="text-align:left">Привет, <font color="blue">romankotelnikov</font></strong>
                                                         <br>
-                                                        <strong style="text-align:left">Ваш Баланс: <font color="blue">2.993 </font></strong>$ | <a href="http://ihtier.net/balance.php">Пополнить</a><br>
+                                                        <strong style="text-align:left">Ваш Баланс: <font color="blue">2.993 </font></strong>$ | <a href="{{ route('balance.index') }}">Пополнить</a><br>
                                                         <strong style="text-align:left">Скидка:</strong> 50%<br>
                                                         <strong style="text-align:left">Ваш IP адресс: 85.26.234.99</strong><br>
                                                         <br>
-                                                        <strong style="text-align:left">Настройки для вашего оборудования:</strong> <a href="http://ihtier.net/index.php?mode=tuner_setup">Получить настройки</a><br>
+                                                        <strong style="text-align:left">Настройки для вашего оборудования:</strong> <a href="{{ route('tuner.index') }}">Получить настройки</a><br>
                                                         <br>
                                                         <strong style="text-align:left">Внимание:</strong>
-                                                        <font size="2"><a href="http://ihtier.net/index.php?mode=rullez" title="Внимательно прочитайте соглашение между сторонами! Если Вы покупаете наши услуги, Вы объязаны соблюдать данное соглашение">Правила сервера</a><br>
+                                                        <font size="2"><a href="{{ route('rules.index') }}" title="Внимательно прочитайте соглашение между сторонами! Если Вы покупаете наши услуги, Вы объязаны соблюдать данное соглашение">Правила сервера</a><br>
                                                             <form>
                                                                 <br><strong>Выбран сервер:<font color="green">
                                                                         <font color="green"><b>28. Россия - сервер доступен дилерам </b></font>
