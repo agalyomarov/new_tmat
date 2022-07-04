@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\PacketController as AdminPacketController;
 use App\Http\Controllers\BalanceController;
 use App\Http\Controllers\DealerController;
 use App\Http\Controllers\FeedbackController;
@@ -24,7 +25,6 @@ Route::group(['middleware' => ['login']], function () {
    Route::get('/', [MainController::class, 'index'])->name('main.index');
    Route::get('/server', [ServerController::class, 'index'])->name('server.index');
    Route::get('/packet', [PacketController::class, 'index'])->name('packet.index');
-   Route::get('/packet/{packet}', [PacketController::class, 'view'])->name('packet.view');
    Route::get('/tuner', [TunerController::class, 'index'])->name('tuner.index');
    Route::get('/port', [PortController::class, 'index'])->name('port.index');
    Route::get('/dealer', [DealerController::class, 'index'])->name('dealer.index');
@@ -36,4 +36,13 @@ Route::group(['middleware' => ['login']], function () {
    Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback.index');
    Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
    Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
+});
+
+
+Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
+   Route::get('/', function () {
+      return redirect()->route('admin.packet.index');
+   })->name('admin.index');
+
+   Route::get('/packet', [AdminPacketController::class, 'index'])->name('packet.index');
 });

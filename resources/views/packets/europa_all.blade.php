@@ -107,7 +107,7 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td colspan="2"><strong><img width="170" height="100" src="{{ asset('images/europa.jpg') }}"></strong></td>
+                                                <td colspan="2"><strong><img style="float:left" width="170" height="100" src="{{ asset('images/europa.jpg') }}"></strong></td>
                                             </tr>
                                             <tr>
                                                 <td>
