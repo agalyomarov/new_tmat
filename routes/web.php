@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\DealerController as AdminDealerController;
 use App\Http\Controllers\Admin\PacketController as AdminPacketController;
 use App\Http\Controllers\BalanceController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DealerController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\HelpController;
@@ -23,17 +25,25 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('login.logout');
 
 Route::group(['middleware' => ['login']], function () {
    Route::get('/', [MainController::class, 'index'])->name('main.index');
+
    Route::get('/server', [ServerController::class, 'index'])->name('server.index');
    Route::get('/packet', [PacketController::class, 'index'])->name('packet.index');
    Route::get('/tuner', [TunerController::class, 'index'])->name('tuner.index');
    Route::get('/port', [PortController::class, 'index'])->name('port.index');
+
    Route::get('/dealer', [DealerController::class, 'index'])->name('dealer.index');
+
+   Route::post('/client', [ClientController::class, 'store'])->name('client.store');
+
+
    Route::get('/balance', [BalanceController::class, 'index'])->name('balance.index');
    Route::get('/balance_history', [BalanceController::class, 'history'])->name('balance.history');
+
    Route::get('/news', [NewsController::class, 'index'])->name('news.index');
    Route::get('/rules', [RulesController::class, 'index'])->name('rules.index');
    Route::get('/help', [HelpController::class, 'index'])->name('help.index');
    Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback.index');
+
    Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
    Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
 });
@@ -45,4 +55,14 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
    })->name('admin.index');
 
    Route::get('/packet', [AdminPacketController::class, 'index'])->name('packet.index');
+   Route::post('/packet', [AdminPacketController::class, 'store'])->name('packet.store');
+   Route::get('/packet/{packet}/delete', [AdminPacketController::class, 'delete'])->name('packet.delete');
+   Route::get('/packet/{packet}', [AdminPacketController::class, 'edit'])->name('packet.edit');
+   Route::put('/packet/{packet}', [AdminPacketController::class, 'update'])->name('packet.update');
+
+   Route::get('/dealer', [AdminDealerController::class, 'index'])->name('dealer.index');
+   Route::post('/dealer', [AdminDealerController::class, 'store'])->name('dealer.store');
+   Route::get('/dealer/{dealer}/delete', [AdminDealerController::class, 'delete'])->name('dealer.delete');
+   Route::get('/dealer/{dealer}', [AdminDealerController::class, 'edit'])->name('dealer.edit');
+   Route::put('/dealer/{dealer}', [AdminDealerController::class, 'update'])->name('dealer.update');
 });
