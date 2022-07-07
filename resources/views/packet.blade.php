@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{ asset('css/desing.css') }}">
     <link href="{{ asset('css/layout.css') }}" rel="stylesheet">
     <link href="{{ asset('css/menu.css') }}" rel="stylesheet">
+
     <style>
         .norm,
         .alt {
@@ -100,18 +101,16 @@
                                             </tr>
                                             <tr>
                                                 <td class="cen">
-                                                    <h3 style="text-align:left;margin-bottom:15px;">Купить пакет для <span style="color:#0000FF"></span></h3>
+                                                    <h3 style="text-align:left;margin-bottom:15px;">Купить пакет для <span style="color:#0000FF">{{ $client->login }}</span></h3>
                                                     <fieldset style="width: 850px" ;="">
-                                                        <form name="user_packets_form" action="#" method="POST">
+                                                        <form name="user_packets_form" action="{{ route('packet.index', $client->id) }}" method="POST">
                                                             @csrf
-                                                            <input type="hidden" id="discount" value="50">
-                                                            <input type="hidden" name="selected_user" value="">
                                                             <center>
                                                                 <table border="1" class="list">
                                                                     <tbody>
                                                                         <tr>
                                                                             <th>
-                                                                                <input name="checkAll" type="checkbox">
+                                                                                <input type="checkbox" class="checkAll" data-change="off">
                                                                             </th>
                                                                             <th width="84">
                                                                                 Пакет
@@ -124,14 +123,15 @@
                                                                         @foreach ($packets as $packet)
                                                                             <tr class="@if ($loop->odd) norm @else alt @endif ">
                                                                                 <td style="text-align:center;">
-                                                                                    <input type="checkbox" value="{{ $packet->label }}">
+                                                                                    <input data-price="{{ $packet->price }}" class="packets" type="checkbox" value="{{ $packet->id }}" name="packets[]">
                                                                                 </td>
                                                                                 <td align="center" width="4000">
                                                                                     <p width="100"><b> <span title="Выбери меня">{{ $packet->title }}</span>
                                                                                         </b></p>
                                                                                 </td>
                                                                                 <td align="center" width="70">
-                                                                                    <b>{{ $packet->price }}
+                                                                                    <b>
+                                                                                        {{ $packet->price }}
                                                                                         $</b>
                                                                                 </td>
                                                                             </tr>
@@ -143,34 +143,35 @@
                                                                         <tr>
                                                                             <td colspan="4">
                                                                                 <strong>Начало:
-                                                                                    <input type="date" name="data1" value="2022-07-03">
+                                                                                    <input disabled type="date" value="{{ Carbon\Carbon::now()->format('Y-m-d') }}">
                                                                                     <br><br>
                                                                                     <strong>Конец:&nbsp;&nbsp;
-                                                                                        <input type="date" name="data2" value="2022-08-03">
+                                                                                        <input id="date2" type="date" name="data2" value="{{ Carbon\Carbon::now()->addMonth()->format('Y-m-d') }}">
                                                                                         или Период:
-                                                                                        <a href="javascript:void(0);">1 мес</a>,
-                                                                                        <a href="javascript:void(0);">2 мес</a>,
-                                                                                        <a href="javascript:void(0);">3 мес</a>,
-                                                                                        <a href="javascript:void(0);">4 мес</a>,
-                                                                                        <a href="javascript:void(0);">5 мес</a>,
-                                                                                        <a href="javascript:void(0);">6 мес</a>,
-                                                                                        <a href="javascript:void(0);">12 мес</a>
+                                                                                        <a data-date={{ Carbon\Carbon::now()->addMonth()->format('Y-m-d') }} href="javascript:void(0);" onclick="addMonth(this)">1 мес</a>,
+                                                                                        <a data-date={{ Carbon\Carbon::now()->addMonths(2)->format('Y-m-d') }} href="javascript:void(0);" onclick="addMonth(this)">2 мес</a>,
+                                                                                        <a data-date={{ Carbon\Carbon::now()->addMonths(3)->format('Y-m-d') }} href="javascript:void(0);" onclick="addMonth(this)">3 мес</a>,
+                                                                                        <a data-date={{ Carbon\Carbon::now()->addMonths(4)->format('Y-m-d') }} href="javascript:void(0);" onclick="addMonth(this)">4 мес</a>,
+                                                                                        <a data-date={{ Carbon\Carbon::now()->addMonths(5)->format('Y-m-d') }} href="javascript:void(0);" onclick="addMonth(this)">5 мес</a>,
+                                                                                        <a data-date={{ Carbon\Carbon::now()->addMonths(6)->format('Y-m-d') }} href="javascript:void(0);" onclick="addMonth(this)">6 мес</a>,
+                                                                                        <a data-date={{ Carbon\Carbon::now()->addMonths(12)->format('Y-m-d') }} href="javascript:void(0);" onclick="addMonth(this)">12 мес</a>
                                                                                         <br><br>
                                                                                         <strong>Общая стоимость:</strong>
                                                                                         <strong>
-                                                                                            <font color="#313a81" id="total_price">0</font> $
+                                                                                            <font color="#313a81" id="total_price">0.00</font> $
                                                                                         </strong>
                                                                                         <br><br>
-                                                                                        <strong>Ваш Баланс: <font color="#313a81">{{ $dealer->balance }}</font>
-                                                                                        </strong>$ | <a href="{{ route('balance.index') }}">Пополнить</a>
-                                                                                        <input type="hidden" name="day_count" id="day_count" value="30">
-                                                                                        <br><br></strong></strong>
+                                                                                        <strong>Ваш Баланс: <font color="#313a81" id="balance">{{ $dealer->balance }}</font></strong>
+                                                                                        $ |
+                                                                                        <a href="{{ route('balance.index') }}">Пополнить</a>
+                                                                                        <br><br>
+                                                                                    </strong>
+                                                                                </strong>
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td colspan="4" border="0">
-                                                                                <input name="user_login" type="hidden" value="">
-                                                                                <input disabled name="submit" type="submit" value="Купить выбраный Вами пакет(ы)" style="color: #0000FF; font-size: 14px; text-decoration: none; font-weight: bold">
+                                                                                <input id="btn_for_buy" disabled type="submit" value="Купить выбраный Вами пакет(ы)" style="color: #0000FF; font-size: 14px; text-decoration: none; font-weight: bold">
                                                                                 <blink>
                                                                                     <left>
                                                                                         <font color="blue"><b><span lang="ru">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Активация
@@ -245,6 +246,57 @@
         </tbody>
     </table>
     <div style="display: none;"></div>
+    <script src="{{ asset('js/moment.js') }}"></script>
+    <script>
+        const packets = document.querySelectorAll('input.packets');
+        const checkAll = document.querySelector('input.checkAll');
+        const date2 = document.querySelector('#date2');
+        const totalPrice = document.querySelector('#total_price');
+        const balance = document.querySelector('#balance');
+        const btnForBuy = document.querySelector('#btn_for_buy');
+        const d = new Date();
+        checkAll.addEventListener('change', function() {
+            const change = checkAll.dataset.change;
+            if (change == 'off') {
+                for (let i = 0; i < packets.length; i++) {
+                    packets[i].checked = true;
+                }
+                checkAll.dataset.change = 'on'
+            }
+            if (change == 'on') {
+                for (let i = 0; i < packets.length; i++) {
+                    packets[i].checked = false;
+                }
+                checkAll.dataset.change = 'off'
+            }
+        });
+
+        setInterval(function() {
+            let generalPrice = 0;
+            for (let i = 0; i < packets.length; i++) {
+                if (packets[i].checked) {
+                    generalPrice += parseFloat(packets[i].dataset.price);
+                    generalPrice = parseFloat(generalPrice.toFixed(2));
+                }
+            }
+            let priceForDay = parseFloat((generalPrice / 30));
+            const startTime = (d.getTime() / 1000).toFixed();
+            let endTime = new Date(date2.value).getTime();
+            endTime = (endTime / 1000).toFixed();
+            let different = parseInt(endTime) - parseInt(startTime);
+            different = parseInt(parseInt(different / 3600) / 24);
+            const pricePackets = (priceForDay * different).toFixed(2);
+            totalPrice.textContent = pricePackets;
+            if (parseFloat(balance.textContent) >= pricePackets && pricePackets != 0) {
+                btnForBuy.removeAttribute('disabled');
+            } else {
+                btnForBuy.setAttribute('disabled', true);
+            }
+        }, 500);
+        const addMonth = function(event) {
+            date2.value = event.dataset.date;
+        }
+    </script>
 </body>
 
 </html>

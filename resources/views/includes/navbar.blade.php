@@ -11,7 +11,7 @@
                    <li><a href="{{ route('main.index') }}">Главная</a></li>
                    <li><a href="{{ route('profile.index') }}">Ваш профиль</a></li>
                    <li><a href="{{ route('server.index') }}">Выбор сервера</a></li>
-                   <li><a href="{{ route('packet.index') }}">Купить пакет</a></li>
+                   {{-- <li><a href="{{ route('packet.index') }}">Купить пакет</a></li> --}}
                    <li><a href="{{ route('tuner.index') }}">Получить настройки</a></li>
                    <li><a href="{{ route('port.index') }}">Таблица портов</a></li>
                </ul>

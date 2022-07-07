@@ -99,7 +99,6 @@
                                             </tr>
                                             <tr>
                                                 <td class="cen">
-                                                    <script src="{{ asset('js/vvod.js') }}" type="text/javascript"></script>
                                                     <center>
                                                         <b>
                                                             <font color="blue">На этой странице Вы можете самостоятельно добавить своих клиентов,<br> стать нашим дилером и получить скидку:<br>10% от 50 клиентов<br>20% от 100 клиентов<br>30% от 150 клиентов<br>40% от 200 клиентов<br>50% от 300
@@ -107,9 +106,16 @@
                                                         </b>
                                                     </center>
                                                     <center>
-                                                        <form action="{{ route('client.store') }}" method="post">
+                                                        <form action="@if (isset($client)) {{ route('client.update', $client->id) }}  @else {{ route('client.store') }} @endif" method="post">
+                                                            @if (isset($client))
+                                                                @method('PUT')
+                                                            @endif
                                                             @csrf
-                                                            <h3 style="margin-bottom:5px;">Новый пользователь</h3>
+                                                            @if (isset($client))
+                                                                <h3 style="margin-bottom:5px;">Редактировать пользователья</h3>
+                                                            @else
+                                                                <h3 style="margin-bottom:5px;">Новый пользователь</h3>
+                                                            @endif
                                                             @foreach ($errors->getMessages() as $error)
                                                                 <div class="error">
                                                                     {{ $error[0] }}
@@ -120,19 +126,19 @@
                                                                     <tr>
                                                                         <td><strong>Логин</strong></td>
                                                                         <td>
-                                                                            <input type="text" class="input_200" maxlength="15" name="login" value="">
+                                                                            <input type="text" class="input_200" maxlength="15" name="login" value=@if (isset($client)) {{ $client->login }} @endif>
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td><strong>Пароль</strong></td>
                                                                         <td>
-                                                                            <input type="text" class="input_200" maxlength="15" name="password">
+                                                                            <input type="text" class="input_200" maxlength="15" name="password" value=@if (isset($client)) {{ $client->password }} @endif>
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td><strong>Номер сервера</strong></td>
                                                                         <td>
-                                                                            <select name="server">
+                                                                            <select id="server_tag_1" name="server" value=@if (isset($client)) {{ $client->server }} @endif>
                                                                                 @include('includes.servers')
                                                                             </select>
                                                                         </td>
@@ -140,14 +146,18 @@
                                                                     <tr>
                                                                         <td><strong>Описание юзера </strong></td>
                                                                         <td>
-                                                                            <textarea name="description" maxlength="58" style="width:242px; height:35px;"></textarea>
+                                                                            <textarea name="description" maxlength="58" style="width:242px; height:35px;color:black">
+@if (isset($client))
+{{ $client->description }}
+@endif
+</textarea>
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td><strong>
                                                                             </strong></td>
                                                                         <td colspan="2">
-                                                                            <input class="btn" type="submit" value="Сохранить">
+                                                                            <input style="margin-bottom: 10px;" class="btn" type="submit" value="@if (isset($client)) Изменить@else Сохранить @endif">
                                                                         </td>
                                                                     </tr>
                                                                 </tbody>
@@ -164,9 +174,8 @@
                                                         <input type="hidden" name="page" value="">
                                                         <br>
                                                         <hr><br><strong>Общее кол-во пользователей:</strong><b>
-                                                            <font color="red">706</font>
+                                                            <font color="red">{{ count($clients) }}</font>
                                                         </b>
-                                                        <script type="text/JavaScript" language="JavaScript" src="{{ asset('/checkall.js') }}"></script>
                                                         <form method="GET">
                                                             <input type="hidden" name="order_asc" value="">
                                                             <input type="hidden" name="order_by" value="">
@@ -249,20 +258,17 @@
                                                                                 <p align="center">{{ $client->server }}</p>
                                                                             </td>
                                                                             <td width="773">
-                                                                                <p align="center"> <span style="white-space: nowrap;"></span>
-                                                                                </p>
+                                                                                <p align="center"> <span style="white-space: nowrap;"></span></p>
                                                                             </td>
                                                                             <td width="773">
-                                                                                <p align="center"> <span style="white-space: nowrap;"></span>
-                                                                                </p>
+                                                                                <p align="center"> <span style="white-space: nowrap;"></span></p>
                                                                             </td>
                                                                             <td width="773">
-                                                                                <p align="center"> 64163535
-                                                                                </p>
+                                                                                <p align="center">{{ $client->description }}</p>
                                                                             </td>
                                                                             <td width="103">
                                                                                 <p align="center">
-                                                                                    <a href="http://ihtier.net/dealer.php?edit=ww146">
+                                                                                    <a href="{{ route('client.edit', $client->id) }}">
                                                                                         <span title="Редактировать"><img src="{{ asset('images/edit.png') }}" border="0"></span></a>
                                                                                     <a>
                                                                                     </a>
@@ -270,7 +276,7 @@
                                                                             </td>
                                                                             <td width="103">
                                                                                 <p align="center">
-                                                                                    <a href="http://ihtier.net/packets.php?selected_user=ww146">
+                                                                                    <a href="{{ route('packet.index', $client->id) }}">
                                                                                         <span title="Купить"><img src="{{ asset('images/buy.png') }}" border="0"></span></a>
                                                                                     <a>
                                                                                     </a>
@@ -308,44 +314,8 @@
                                                             <p><b>
                                                                     <font color="blue">Всем выбранным клиентам сменить
                                                                         сервер на:
-                                                                        <select name="server_n">
-                                                                            <option></option>
-                                                                            <option value="1">1. Франция - ns1.ihtier.net</option>
-                                                                            <option value="2">2. Франция - сервер доступен дилерам </option>
-                                                                            <option value="3">3. Франция - сервер доступен дилерам </option>
-                                                                            <option value="4">4. Tajikistan - сервер доступен дилерам </option>
-                                                                            <option value="5">5. Франция - ns5.ihtier.net </option>
-                                                                            <option value="6">6. Франсия - сервер доступен дилерам </option>
-                                                                            <option value="7">7. Украина - ns7.ihtier.net </option>
-                                                                            <option value="8">8. Turkmen - сервер доступен дилерам </option>
-                                                                            <option value="9">9. Turkmen - сервер доступен дилерам </option>
-                                                                            <option value="10">10. Россия - сервер доступен дилерам </option>
-                                                                            <option value="11">11. Россия - сервер доступен дилерам </option>
-                                                                            <option value="12">12. Россия - сервер доступен дилерам </option>
-                                                                            <option value="13">13. Tajikistan - сервер доступен дилерам </option>
-                                                                            <option value="14">14. Россия - сервер доступен дилерам </option>
-                                                                            <option value="15">15. Росcия - сервер доступен дилерам </option>
-                                                                            <option value="16">16. Tajikistan - сервер доступен дилерам </option>
-                                                                            <option value="17">17. Франция - ns17.ihtier.net </option>
-                                                                            <option value="18">18. Франция - сервер доступен дилерам </option>
-                                                                            <option value="19">19. Франция - сервер доступен дилерам </option>
-                                                                            <option value="20">20. Франция - сервер доступен дилерам </option>
-                                                                            <option value="21">21. Россия - сервер доступен дилерам </option>
-                                                                            <option value="22">22. Германия - сервер доступен дилерам </option>
-                                                                            <option value="23">23. Россия - сервер доступен дилерам </option>
-                                                                            <option value="24">24. Tajikistan - сервер доступен дилерам </option>
-                                                                            <option value="25">25. Tajikistan - сервер доступен дилерам </option>
-                                                                            <option value="26">26. Россия - сервер доступен дилерам </option>
-                                                                            <option value="27">27. Tajikistan - сервер доступен дилерам </option>
-                                                                            <option value="28">28. Россия - сервер доступен дилерам </option>
-                                                                            <option value="29">29. Россия - сервер доступен дилерам </option>
-                                                                            <option value="30">30. Россия - сервер доступен дилерам </option>
-                                                                            <option value="31">31. Россия - сервер доступен дилерам </option>
-                                                                            <option value="32">32. Turkmen - сервер доступен дилерам </option>
-                                                                            <option value="33">33. Turkmen - сервер доступен дилерам </option>
-                                                                            <option value="34">34. Turkmen - сервер доступен дилерам </option>
-                                                                            <option value="35">35. Turkmen - сервер доступен дилерам </option>
-                                                                            <option value="36">36. Turkmen - сервер доступен дилерам </option>
+                                                                        <select name="server" value="">
+                                                                            @include('includes.servers')
                                                                         </select>
                                                                         <input type="button" value="Сменить">
                                                                     </font>
@@ -417,6 +387,13 @@
         </tbody>
     </table>
     <div style="display: none;"></div>
+    <script>
+        const serverTag1 = document.getElementById('server_tag_1');
+        const serverTag1Value = serverTag1.getAttribute('value');
+        if (serverTag1.querySelector(`option[value="${serverTag1Value}"]`)) {
+            serverTag1.querySelector(`option[value="${serverTag1Value}"]`).setAttribute('selected', true);
+        }
+    </script>
 </body>
 
 </html>
