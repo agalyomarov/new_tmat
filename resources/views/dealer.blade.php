@@ -174,7 +174,7 @@
                                                         <input type="hidden" name="page" value="">
                                                         <br>
                                                         <hr><br><strong>Общее кол-во пользователей:</strong><b>
-                                                            <font color="red">{{ count($clients) }}</font>
+                                                            <font color="red">{{ $countClients }}</font>
                                                         </b>
                                                         <form method="GET">
                                                             <input type="hidden" name="order_asc" value="">
@@ -244,6 +244,8 @@
                                                                         <th>&nbsp;</th>
                                                                     </tr>
                                                                     @foreach ($clients as $client)
+                                                                        @if (count($client->packets) > 0)
+                                                                        @endif
                                                                         <tr class="@if ($loop->odd) norm @else alt @endif">
                                                                             <td style="text-align:center">
                                                                                 <input type="checkbox" name="users[]" value="ww146">
@@ -257,11 +259,21 @@
                                                                             <td width="773">
                                                                                 <p align="center">{{ $client->server }}</p>
                                                                             </td>
+
                                                                             <td width="773">
-                                                                                <p align="center"> <span style="white-space: nowrap;"></span></p>
+                                                                                <p align="center">
+                                                                                    <span style="white-space: nowrap;">
+                                                                                        {{ $client->packet_title }}
+                                                                                    </span>
+                                                                                </p>
                                                                             </td>
                                                                             <td width="773">
-                                                                                <p align="center"> <span style="white-space: nowrap;"></span></p>
+                                                                                <p align="center">
+                                                                                    <span style="white-space: nowrap;">
+                                                                                        {{ $client->packet_end_date }}
+
+                                                                                    </span>
+                                                                                </p>
                                                                             </td>
                                                                             <td width="773">
                                                                                 <p align="center">{{ $client->description }}</p>

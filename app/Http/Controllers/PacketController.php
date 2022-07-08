@@ -51,12 +51,10 @@ class PacketController extends Controller
             } else if ($dealerClients > 50) {
                 $pricePackets = round(10 * $pricePackets / 100, 2);
             }
-
             DB::beginTransaction();
             foreach ($packets as $packet) {
                 DB::table('client_packets')->insert(['dealer_id' => $dealer->id, 'client_id' => $client->id, 'packet_id' => $packet->id, 'end_date' => $data['data2']]);
             }
-
             $dealer->balance = round($dealer->balance - $pricePackets, 2);
             $dealer->save();
             DB::commit();

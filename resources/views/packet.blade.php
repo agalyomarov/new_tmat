@@ -23,6 +23,19 @@
         .alt input[type="checkbox"] {
             margin-top: 5px;
         }
+
+        span.message {
+            color: red;
+            line-height: 25px;
+        }
+
+        .hide {
+            display: inline;
+            position: absolute;
+            z-index: -1;
+            top: -100%;
+            left: -100%;
+        }
     </style>
 </head>
 
@@ -164,14 +177,16 @@
                                                                                         <strong>Ваш Баланс: <font color="#313a81" id="balance">{{ $dealer->balance }}</font></strong>
                                                                                         $ |
                                                                                         <a href="{{ route('balance.index') }}">Пополнить</a>
-                                                                                        <br><br>
+                                                                                        <br>
+                                                                                        <span id="message" class="message hide"></span>
+                                                                                        <br>
                                                                                     </strong>
                                                                                 </strong>
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td colspan="4" border="0">
-                                                                                <input id="btn_for_buy" disabled type="submit" value="Купить выбраный Вами пакет(ы)" style="color: #0000FF; font-size: 14px; text-decoration: none; font-weight: bold">
+                                                                                <input data-status='' id="btn_for_buy" type="button" value="Купить выбраный Вами пакет(ы)" style="color: #0000FF; font-size: 14px; text-decoration: none; font-weight: bold">
                                                                                 <blink>
                                                                                     <left>
                                                                                         <font color="blue"><b><span lang="ru">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Активация
@@ -254,6 +269,7 @@
         const totalPrice = document.querySelector('#total_price');
         const balance = document.querySelector('#balance');
         const btnForBuy = document.querySelector('#btn_for_buy');
+        const message = document.querySelector('#message');
         const d = new Date();
         checkAll.addEventListener('change', function() {
             const change = checkAll.dataset.change;
@@ -287,14 +303,34 @@
             different = parseInt(parseInt(different / 3600) / 24);
             const pricePackets = (priceForDay * different).toFixed(2);
             totalPrice.textContent = pricePackets;
-            if (parseFloat(balance.textContent) >= pricePackets && pricePackets != 0) {
-                btnForBuy.removeAttribute('disabled');
+            if (parseFloat(pricePackets) == 0) {
+                btnForBuy.dataset.status = 'packet';
+            } else if (parseFloat(balance.textContent) < pricePackets) {
+                btnForBuy.dataset.status = 'balance';
             } else {
-                btnForBuy.setAttribute('disabled', true);
+                btnForBuy.dataset.status = '';
             }
         }, 500);
         const addMonth = function(event) {
             date2.value = event.dataset.date;
+        }
+        btnForBuy.addEventListener('click', function(event) {
+            if (event.target.dataset.status == 'balance') {
+                message.textContent = 'НЕДОСТАТОЧНО СРЕДСТВ';
+                message.classList.remove('hide');
+                setTimeout(removeMessage, 2000);
+            } else if (event.target.dataset.status == 'packet') {
+                message.textContent = 'НЕ ВЫБРАН ПАКЕТ(Ы)';
+                message.classList.remove('hide');
+                setTimeout(removeMessage, 2000);
+            } else {
+                event.target.setAttribute('type', 'submit');
+                event.target.click();
+            }
+        });
+        const removeMessage = function() {
+            message.classList.add('hide');
+            message.textContent = '';
         }
     </script>
 </body>
