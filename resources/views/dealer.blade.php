@@ -177,10 +177,8 @@
                                                             <font color="red">{{ $countClients }}</font>
                                                         </b>
                                                         <form method="GET">
-                                                            <input type="hidden" name="order_asc" value="">
-                                                            <input type="hidden" name="order_by" value="">
                                                             <input type="hidden" name="page" value=""> Элементов на странице:
-                                                            <select name="items_pp">
+                                                            <select name="q">
                                                                 <option selected="1">10</option>
                                                                 <option>15</option>
                                                                 <option>20</option>
@@ -190,7 +188,7 @@
                                                                 <option>500</option>
                                                                 <option>5000</option>
                                                             </select>
-                                                            <input type="submit" name="filter_submit" value="OK">
+                                                            <input type="submit" value="OK">
                                                         </form>
                                                         <form name="users_renew" action="http://ihtier.net/dealer.php" method="POST">
                                                             <input type="hidden" name="do" value="renew">
@@ -201,40 +199,47 @@
                                                                 <tbody>
                                                                     <tr>
                                                                         <th>
-                                                                            <input name="checkAll" type="checkbox">
+                                                                            <input name="checkAll" type="checkbox" id="check_all_users" data-change="off">
                                                                         </th>
                                                                         <th width="773">
-                                                                            <p align="center"> <a href="http://ihtier.net/dealer.php?order_by=login&amp;">
+                                                                            <p align="center">
+                                                                                <a href="javascript:void()">
                                                                                     Логин
                                                                                 </a>
                                                                             </p>
                                                                         </th>
                                                                         <th width="773">
-                                                                            <p align="center"> <a href="http://ihtier.net/dealer.php?order_by=password&amp;">
+                                                                            <p align="center"> <a href="javascript:void()">
                                                                                     Пароль
                                                                                 </a>
                                                                             </p>
                                                                         </th>
                                                                         <th width="773">
-                                                                            <p align="center"> <a href="http://ihtier.net/dealer.php?order_by=server_n&amp;">
+                                                                            <p align="center"> <a href="javascript:void()">
                                                                                     № Сервера
                                                                                 </a>
                                                                             </p>
                                                                         </th>
                                                                         <th width="773">
-                                                                            <p align="center"> <a href="http://ihtier.net/dealer.php?order_by=packet_group&amp;">
+                                                                            <p align="center"> <a href="javascript:void()">
                                                                                     Пакет
                                                                                 </a>
                                                                             </p>
                                                                         </th>
                                                                         <th width="773">
-                                                                            <p align="center"> <a href="http://ihtier.net/dealer.php?order_by=time_till&amp;">
+                                                                            <p align="center"> <a href="javascript:void()">
+                                                                                    Стоимость $
+                                                                                </a>
+                                                                            </p>
+                                                                        </th>
+                                                                        <th width="773">
+                                                                            <p align="center"> <a href="javascript:void()">
                                                                                     действует до
                                                                                 </a>
                                                                             </p>
                                                                         </th>
                                                                         <th width="773">
-                                                                            <p align="center"> <a href="http://ihtier.net/dealer.php?order_by=notice&amp;">
+                                                                            <p align="center"> <a href="javascript:void()">
                                                                                     Описание юзера
                                                                                 </a>
                                                                             </p>
@@ -246,7 +251,7 @@
                                                                     @foreach ($clients as $client)
                                                                         <tr class="@if ($loop->odd) norm @else alt @endif">
                                                                             <td style="text-align:center">
-                                                                                <input type="checkbox" name="users[]" value="ww146">
+                                                                                <input type="checkbox" class="check_users">
                                                                             </td>
                                                                             <td width="773">
                                                                                 <p align="center">{{ $client->login }}</p>
@@ -262,6 +267,13 @@
                                                                                 <p align="center">
                                                                                     <span style="white-space: nowrap;">
                                                                                         {{ $client->packet_title }}
+                                                                                    </span>
+                                                                                </p>
+                                                                            </td>
+                                                                            <td width="773">
+                                                                                <p align="center">
+                                                                                    <span style="white-space: nowrap;">
+                                                                                        {{ $client->packet_price }}
                                                                                     </span>
                                                                                 </p>
                                                                             </td>
@@ -303,19 +315,7 @@
                                                                     @endforeach
                                                                 </tbody>
                                                             </table>
-                                                            <div class="handlerFeld"><a class="PagesHandlerLink" href="http://ihtier.net/dealer.php?page=1">&lt;&lt;</a> <a class="PagesHandlerLink" href="http://ihtier.net/dealer.php?page=1">Назад</a>
-                                                                <font face="Symbol">·</font> <a class="PagesHandlerLink" href="http://ihtier.net/dealer.php?page=1">1</a>
-                                                                <font face="\&quot;Symbol\&quot;">·</font> <a class="PagesHandlerLink" href="http://ihtier.net/dealer.php?page=2">2</a>
-                                                                <font face="\&quot;Symbol\&quot;">·</font> <a class="PagesHandlerLink" href="http://ihtier.net/dealer.php?page=3">3</a>
-                                                                <font face="\&quot;Symbol\&quot;">·</font> <a class="PagesHandlerLink" href="http://ihtier.net/dealer.php?page=4">4</a>
-                                                                <font face="Symbol">·</font> [5/71]
-                                                                <font face="Symbol">·</font> <a class="PagesHandlerLink" href="http://ihtier.net/dealer.php?page=6">6</a>
-                                                                <font face="\&quot;Symbol\&quot;">·</font> <a class="PagesHandlerLink" href="http://ihtier.net/dealer.php?page=7">7</a>
-                                                                <font face="\&quot;Symbol\&quot;">·</font> <a class="PagesHandlerLink" href="http://ihtier.net/dealer.php?page=8">8</a>
-                                                                <font face="\&quot;Symbol\&quot;">·</font> <a class="PagesHandlerLink" href="http://ihtier.net/dealer.php?page=9">9</a>
-                                                                <font face="\&quot;Symbol\&quot;">·</font> <a class="PagesHandlerLink" href="http://ihtier.net/dealer.php?page=10">10</a>
-                                                                <font face="Symbol">·</font> <a class="PagesHandlerLink" href="http://ihtier.net/dealer.php?page=6">Дальше</a> <a class="PagesHandlerLink" href="http://ihtier.net/dealer.php?page=71">&gt;&gt;</a>
-                                                            </div>
+                                                            {{ $clients->links('vendor.pagination.default', compact('elementCount')) }}
                                                             <br>
                                                             <b>
                                                                 <font color="blue"></font>
@@ -399,9 +399,24 @@
     <script>
         const serverTag1 = document.getElementById('server_tag_1');
         const serverTag1Value = serverTag1.getAttribute('value');
+        const checkAllUsers = document.querySelector('#check_all_users');
+        const users = document.querySelectorAll('input.check_users');
         if (serverTag1.querySelector(`option[value="${serverTag1Value}"]`)) {
             serverTag1.querySelector(`option[value="${serverTag1Value}"]`).setAttribute('selected', true);
         }
+        check_all_users.addEventListener('change', function(event) {
+            if (event.target.dataset.change == 'off') {
+                for (let i = 0; i < users.length; i++) {
+                    users[i].click();
+                }
+                event.target.dataset.change = 'on';
+            } else {
+                for (let i = 0; i < users.length; i++) {
+                    users[i].click();
+                }
+                event.target.dataset.change = 'off';
+            }
+        });
     </script>
 </body>
 
