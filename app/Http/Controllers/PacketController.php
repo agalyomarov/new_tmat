@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BalanceHistory;
 use App\Models\Client;
 use App\Models\Dealer;
 use App\Models\Packet;
@@ -24,7 +25,6 @@ class PacketController extends Controller
         try {
             $dealer = Dealer::where('login', session('login'))->first();
             $data = $request->all();
-            // $endDate=Carbon::parse($data['data2'])->addOne();
             $startTime = time();
             $endTime = Carbon::parse($data['data2'])->timestamp;
             $different = $endTime - $startTime;
@@ -54,6 +54,7 @@ class PacketController extends Controller
             DB::beginTransaction();
             foreach ($packets as $packet) {
                 DB::table('client_packets')->insert(['dealer_id' => $dealer->id, 'client_id' => $client->id, 'packet_id' => $packet->id, 'end_date' => $data['data2']]);
+                BalanceHistory::create(['dealer_id' => $dealer->id, 'date' => Carbon::now(), 'price' => '-' . $packet->price, 'action' => 'Куплен пакет: ' . $packet->title, 'client' => $client->login]);
             }
             $dealer->balance = round($dealer->balance - $pricePackets, 2);
             $dealer->save();
@@ -67,9 +68,8 @@ class PacketController extends Controller
     public function stop($client_packet, Request $request)
     {
         try {
-
             $dealer = Dealer::where('login', session('login'))->first();
-            $client_packet = DB::table('client_packets')->where(['client_packets.id' => $client_packet, 'client_packets.dealer_id' => $dealer->id])->leftJoin('packets', 'client_packets.packet_id', '=', 'packets.id')->leftJoin('clients', 'client_packets.client_id', '=', 'clients.id')->select('client_packets.*', 'packets.price', 'clients.login')->first();
+            $client_packet = DB::table('client_packets')->where(['client_packets.id' => $client_packet, 'client_packets.dealer_id' => $dealer->id])->leftJoin('packets', 'client_packets.packet_id', '=', 'packets.id')->leftJoin('clients', 'client_packets.client_id', '=', 'clients.id')->select('client_packets.*', 'packets.price', 'packets.title', 'clients.login')->first();
             $endDateUnix = strtotime($client_packet->end_date);
             $nowDateUnix = strtotime(Carbon::now());
             $different = $endDateUnix - $nowDateUnix;
@@ -79,6 +79,7 @@ class PacketController extends Controller
             $dealer->balance += $ostatok;
             DB::beginTransaction();
             DB::table('client_packets')->where('id', $client_packet->id)->delete();
+            BalanceHistory::create(['dealer_id' => $dealer->id, 'date' => Carbon::now(), 'price' => '+' . $ostatok, 'action' => 'Остановлен пакет: ' . $client_packet->title, 'client' => $client_packet->login]);
             $dealer->save();
             DB::commit();
             return redirect()->route('dealer.index');

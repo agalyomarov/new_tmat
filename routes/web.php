@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DealerController as AdminDealerController;
+use App\Http\Controllers\Admin\NewsController as AdminNewsController;
 use App\Http\Controllers\Admin\PacketController as AdminPacketController;
 use App\Http\Controllers\BalanceController;
 use App\Http\Controllers\ClientController;
@@ -16,7 +17,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RulesController;
 use App\Http\Controllers\ServerController;
 use App\Http\Controllers\TunerController;
-
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 
@@ -42,6 +43,7 @@ Route::group(['middleware' => ['login']], function () {
    Route::post('/client', [ClientController::class, 'store'])->name('client.store');
    Route::get('/dealer/{client}', [ClientController::class, 'edit'])->name('client.edit');
    Route::put('/dealer/{client}', [ClientController::class, 'update'])->name('client.update');
+   Route::put('/dealer', [ClientController::class, 'server'])->name('client.server');
 
 
    Route::get('/balance', [BalanceController::class, 'index'])->name('balance.index');
@@ -73,4 +75,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
    Route::get('/dealer/{dealer}/delete', [AdminDealerController::class, 'delete'])->name('dealer.delete');
    Route::get('/dealer/{dealer}', [AdminDealerController::class, 'edit'])->name('dealer.edit');
    Route::put('/dealer/{dealer}', [AdminDealerController::class, 'update'])->name('dealer.update');
+
+   Route::get('/news', [AdminNewsController::class, 'index'])->name('news.index');
+   Route::post('/news', [AdminNewsController::class, 'store'])->name('news.store');
+   Route::get('/news/{article}/delete', [AdminNewsController::class, 'delete'])->name('news.delete');
+   Route::get('/news/{article}', [AdminNewsController::class, 'edit'])->name('news.edit');
+   Route::put('/news/{article}', [AdminNewsController::class, 'update'])->name('news.update');
 });

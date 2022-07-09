@@ -190,11 +190,9 @@
                                                             </select>
                                                             <input type="submit" value="OK">
                                                         </form>
-                                                        <form name="users_renew" action="http://ihtier.net/dealer.php" method="POST">
-                                                            <input type="hidden" name="do" value="renew">
-                                                            <input type="hidden" name="server_n" value="1">
-                                                            <input type="hidden" name="satServer_name" value="">
-                                                            <input type="hidden" name="satServer_type" value="">
+                                                        <form action="{{ route('client.server') }}" method="post">
+                                                            @method('PUT')
+                                                            @csrf
                                                             <table class="list">
                                                                 <tbody>
                                                                     <tr>
@@ -251,7 +249,7 @@
                                                                     @foreach ($clients as $client)
                                                                         <tr class="@if ($loop->odd) norm @else alt @endif">
                                                                             <td style="text-align:center">
-                                                                                <input type="checkbox" class="check_users">
+                                                                                <input type="checkbox" class="check_users" name="users[]" value="{{ $client->id }}">
                                                                             </td>
                                                                             <td width="773">
                                                                                 <p align="center">{{ $client->login }}</p>
@@ -320,15 +318,17 @@
                                                             <b>
                                                                 <font color="blue"></font>
                                                             </b>
-                                                            <p><b>
+                                                            <p>
+                                                                <b>
                                                                     <font color="blue">Всем выбранным клиентам сменить
                                                                         сервер на:
                                                                         <select name="server" value="">
                                                                             @include('includes.servers')
                                                                         </select>
-                                                                        <input type="button" value="Сменить">
+                                                                        <input type="submit" value="Сменить">
                                                                     </font>
-                                                                </b></p>
+                                                                </b>
+                                                            </p>
                                                         </form>
                                                     </center>
                                                     <p></p>

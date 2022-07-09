@@ -114,21 +114,15 @@
                                                     </style>
                                                     <font size="-2" style="text-align:left">
                                                         <br><br>
-                                                        <strong style="text-align:left">Привет, <font color="blue">romankotelnikov</font></strong>
+                                                        <strong style="text-align:left">Привет, <font color="blue">{{ $dealer->login }}</font></strong>
                                                         <br>
-                                                        <strong style="text-align:left">Ваш Баланс: <font color="blue">2.993 </font></strong>$ | <a href="{{ route('balance.index') }}">Пополнить</a><br>
-                                                        <strong style="text-align:left">Скидка:</strong> 50%<br>
-                                                        <strong style="text-align:left">Ваш IP адресс: 85.26.234.99</strong><br>
+                                                        <strong style="text-align:left">Ваш Баланс: <font color="blue">{{ $dealer->balance }} </font></strong>$ | <a href="{{ route('balance.index') }}">Пополнить</a><br>
+                                                        <strong style="text-align:left">Скидка:</strong> {{ $dealer->discount }}%<br>
                                                         <br>
                                                         <strong style="text-align:left">Настройки для вашего оборудования:</strong> <a href="{{ route('tuner.index') }}">Получить настройки</a><br>
                                                         <br>
                                                         <strong style="text-align:left">Внимание:</strong>
                                                         <font size="2"><a href="{{ route('rules.index') }}" title="Внимательно прочитайте соглашение между сторонами! Если Вы покупаете наши услуги, Вы объязаны соблюдать данное соглашение">Правила сервера</a><br>
-                                                            <form>
-                                                                <br><strong>Выбран сервер:<font color="green">
-                                                                        <font color="green"><b>28. Россия - сервер доступен дилерам </b></font>
-                                                                    </font></strong>
-                                                            </form>
                                                             <br>
                                                         </font>
                                                     </font>
