@@ -303,10 +303,15 @@
                                                                             </td>
                                                                             <td width="103">
                                                                                 <p align="center">
-                                                                                    <a href="{{ route('packet.stop', $client->client_packet_id) }}">
-                                                                                        <span title="Остановить"><img src="{{ asset('images/stop.png') }}" border="0"></span></a>
-                                                                                    <a>
-                                                                                    </a>
+                                                                                    @if ($client->client_packet_id)
+                                                                                        <a href="{{ route('packet.stop', $client->client_packet_id) }}">
+                                                                                            <span title="Остановить"><img src="{{ asset('images/stop.png') }}" border="0"></span>
+                                                                                        </a>
+                                                                                    @else
+                                                                                        <a href="javascript:void()">
+                                                                                            <span title="Остановить"><img src="{{ asset('images/stop.png') }}" border="0"></span>
+                                                                                        </a>
+                                                                                    @endif
                                                                                 </p>
                                                                             </td>
                                                                         </tr>

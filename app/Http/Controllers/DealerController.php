@@ -24,7 +24,7 @@ class DealerController extends Controller
         $elementCount = Client::where('clients.dealer_id', $dealer->id)->leftjoin('client_packets', 'clients.id', '=', 'client_packets.client_id')->leftjoin('packets', 'packets.id', '=', 'client_packets.packet_id')->select('clients.*', 'client_packets.id as client_packet_id', 'client_packets.end_date', 'packets.title as packet_title', 'packets.price as packet_price')->count();
         $countClients = Client::where('clients.dealer_id', $dealer->id)->count();
 
-        // dd($q);
+        // dd($clients);
         return view('dealer', compact('dealer', 'clients', 'countClients', 'elementCount'));
     }
 }
