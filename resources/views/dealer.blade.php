@@ -244,8 +244,6 @@
                                                                         <th>&nbsp;</th>
                                                                     </tr>
                                                                     @foreach ($clients as $client)
-                                                                        @if (count($client->packets) > 0)
-                                                                        @endif
                                                                         <tr class="@if ($loop->odd) norm @else alt @endif">
                                                                             <td style="text-align:center">
                                                                                 <input type="checkbox" name="users[]" value="ww146">
@@ -270,8 +268,7 @@
                                                                             <td width="773">
                                                                                 <p align="center">
                                                                                     <span style="white-space: nowrap;">
-                                                                                        {{ $client->packet_end_date }}
-
+                                                                                        {{ Carbon\Carbon::parse($client->end_date)->format('d-m-Y') }}
                                                                                     </span>
                                                                                 </p>
                                                                             </td>
@@ -296,7 +293,7 @@
                                                                             </td>
                                                                             <td width="103">
                                                                                 <p align="center">
-                                                                                    <a href="http://ihtier.net/dmypackets.php?selected_user=ww146" onclick="return confirm(&#39;msg__stop_confirm&#39;)">
+                                                                                    <a href="{{ route('packet.stop', $client->client_packet_id) }}">
                                                                                         <span title="Остановить"><img src="{{ asset('images/stop.png') }}" border="0"></span></a>
                                                                                     <a>
                                                                                     </a>

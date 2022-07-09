@@ -31,6 +31,7 @@ Route::group(['middleware' => ['login']], function () {
 
    Route::get('/packet/{client}', [PacketController::class, 'index'])->name('packet.index');
    Route::post('/packet/{client}', [PacketController::class, 'store'])->name('packet.store');
+   Route::get('/packet/stop/{client_packet}', [PacketController::class, 'stop'])->name('packet.stop');
 
 
    Route::get('/tuner', [TunerController::class, 'index'])->name('tuner.index');

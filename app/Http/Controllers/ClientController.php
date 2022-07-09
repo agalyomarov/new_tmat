@@ -39,8 +39,9 @@ class ClientController extends Controller
     public function edit(Client $client)
     {
         $dealer = Dealer::where('login', session('login'))->first();
-        $clients = Client::where('dealer_id', $dealer->id)->get();
-        return view('dealer', compact('dealer', 'clients', 'client'));
+        $clients = Client::where('clients.dealer_id', $dealer->id)->leftjoin('client_packets', 'clients.id', '=', 'client_packets.client_id')->leftjoin('packets', 'packets.id', '=', 'client_packets.packet_id')->select('clients.*', 'client_packets.id as client_packets.id', 'client_packets.end_date', 'packets.title as packet_title')->paginate();
+        $countClients = Client::where('clients.dealer_id', $dealer->id)->count();
+        return view('dealer', compact('dealer', 'clients', 'countClients', 'client'));
     }
 
     public function update(Client $client, Request $request)

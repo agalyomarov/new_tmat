@@ -64,4 +64,27 @@ class PacketController extends Controller
             return redirect()->route('dealer.index');
         }
     }
+    public function stop($client_packet, Request $request)
+    {
+        try {
+
+            $dealer = Dealer::where('login', session('login'))->first();
+            $client_packet = DB::table('client_packets')->where(['client_packets.id' => $client_packet, 'client_packets.dealer_id' => $dealer->id])->leftJoin('packets', 'client_packets.packet_id', '=', 'packets.id')->leftJoin('clients', 'client_packets.client_id', '=', 'clients.id')->select('client_packets.*', 'packets.price', 'clients.login')->first();
+            $endDateUnix = strtotime($client_packet->end_date);
+            $nowDateUnix = strtotime(Carbon::now());
+            $different = $endDateUnix - $nowDateUnix;
+            $different = (int)($different / 3600 / 24);
+            $priceForDay = (float)$client_packet->price / 30;
+            $ostatok = $priceForDay * $different;
+            $dealer->balance += $ostatok;
+            DB::beginTransaction();
+            DB::table('client_packets')->where('id', $client_packet->id)->delete();
+            $dealer->save();
+            DB::commit();
+            return redirect()->route('dealer.index');
+        } catch (\Exception $e) {
+            DB::rollback();
+            return redirect()->route('dealer.index');
+        }
+    }
 }
