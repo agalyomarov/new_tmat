@@ -41,6 +41,16 @@
         </div>
     </div>
     <div class="row mt-5">
+        <div class="col-3">
+            <form method="get">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="s" placeholder="Login">
+                </div>
+                <button type="submit" class="btn btn-primary">Поиск</button>
+            </form>
+        </div>
+    </div>
+    <div class="row mt-5">
         <div class="col-12">
             <div class="card">
                 <div class="card-body table-responsive p-0">
@@ -70,6 +80,9 @@
                         </tbody>
                     </table>
                 </div>
+            </div>
+            <div class="col-6 ">
+                {{ $dealers->links('vendor.pagination.bootstrap-5') }}
             </div>
         </div>
     </div>

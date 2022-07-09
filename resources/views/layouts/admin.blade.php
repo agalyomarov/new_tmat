@@ -44,6 +44,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="{{ route('admin.client.index') }}" class="nav-link">
+                                <p>
+                                    Клиенты
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="{{ route('admin.news.index') }}" class="nav-link">
                                 <p>
                                     Новости

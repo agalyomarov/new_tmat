@@ -10,9 +10,10 @@ use Illuminate\Support\Facades\Validator;
 
 class DealerController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $dealers = Dealer::all()->reverse();
+        $s = $request->query('s');
+        $dealers = Dealer::where('login', 'LIKE', '%' . $s . '%')->paginate(30);
         // dd($dealers);
         return view('admin.dealer', compact('dealers'));
     }

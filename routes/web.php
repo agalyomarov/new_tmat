@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ClientController as AdminClientController;
 use App\Http\Controllers\Admin\DealerController as AdminDealerController;
 use App\Http\Controllers\Admin\NewsController as AdminNewsController;
 use App\Http\Controllers\Admin\PacketController as AdminPacketController;
@@ -81,4 +82,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
    Route::get('/news/{article}/delete', [AdminNewsController::class, 'delete'])->name('news.delete');
    Route::get('/news/{article}', [AdminNewsController::class, 'edit'])->name('news.edit');
    Route::put('/news/{article}', [AdminNewsController::class, 'update'])->name('news.update');
+
+   Route::get('/client', [AdminClientController::class, 'index'])->name('client.index');
 });
