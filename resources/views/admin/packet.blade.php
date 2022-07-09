@@ -2,8 +2,8 @@
 
 @section('content')
     <div class="row">
-        <div class="col-6">
-            <h1 class="m-0 mb-3">Добавить пакет</h1>
+        <div class="col-sm-12 col-md-6">
+            <h1 class="m-0 mb-3">Пакеты</h1>
             <form method="post" action="@if (isset($packet)) {{ route('admin.packet.update', $packet->id) }}@else{{ route('admin.packet.store') }} @endif">
                 @csrf
                 <div class="form-group">

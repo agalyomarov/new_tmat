@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Client;
 use App\Models\Dealer;
 use App\Models\Packet;
 use Illuminate\Http\Request;
@@ -27,8 +28,6 @@ class DealerController extends Controller
                 'login' => ['required', 'unique:dealers,login', 'min:5', 'max:15'],
                 'password' => ['required', 'min:5', 'max:15'],
                 'email' => ['required', 'email'],
-                'balance' => ['required', 'numeric', 'min:0.00', 'max:1000000.00'],
-                'discount' => ['required', 'integer'],
             ]);
             if ($validator->fails()) {
                 return redirect()
@@ -44,14 +43,16 @@ class DealerController extends Controller
         }
     }
 
-    public function edit(Dealer $dealer)
+    public function edit(Dealer $dealer, Request $request)
     {
-        $dealers = Dealer::all()->reverse();
+        $s = $request->query('s');
+        $dealers = Dealer::where('login', 'LIKE', '%' . $s . '%')->paginate(30);
         return view('admin.dealer', compact('dealers', 'dealer'));
     }
 
     public function delete(Dealer $dealer)
     {
+        Client::where('dealer_id', $dealer->id)->delete();
         $dealer->delete();
         return redirect()->route('admin.dealer.index');
     }
@@ -65,8 +66,6 @@ class DealerController extends Controller
                 'login' => ['required', 'unique:dealers,login,' . $data['id'], 'min:5', 'max:15',],
                 'password' => ['required', 'min:5', 'max:15'],
                 'email' => ['required', 'email'],
-                'balance' => ['required', 'numeric', 'min:0.00', 'max:1000000.00'],
-                'discount' => ['required', 'integer'],
             ]);
             if ($validator->fails()) {
                 return redirect()
@@ -75,6 +74,7 @@ class DealerController extends Controller
                     ->withInput();
             }
             $validated = $validator->validated();
+            // $dealer->
             Dealer::where('id', $data['id'])->update($validated);
             return redirect()->route('admin.dealer.index');
         } catch (\Exception $e) {

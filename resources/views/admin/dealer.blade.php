@@ -2,8 +2,17 @@
 
 @section('content')
     <div class="row">
-        <div class="col-6">
-            <h1 class="m-0 mb-3">Добавить пакет</h1>
+        <div class="col-sm-6 col-md-6">
+            <h1 class="m-0 mb-3">Дилеры</h1>
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <form method="post" action="@if (isset($dealer)) {{ route('admin.dealer.update', $dealer->id) }}@else{{ route('admin.dealer.store') }} @endif">
                 @csrf
                 <div class="form-group">
@@ -17,14 +26,6 @@
                 <div class="form-group">
                     <label>Email</label>
                     <input type="email" class="form-control" placeholder="" name="email" @if (isset($dealer)) value="{{ $dealer->email }}" @endif>
-                </div>
-                <div class="form-group">
-                    <label>Баланс</label>
-                    <input type="text" class="form-control" placeholder="" name="balance" @if (isset($dealer)) value="{{ $dealer->balance }}" @else value="0.00" @endif>
-                </div>
-                <div class="form-group">
-                    <label>Скидка</label>
-                    <input type="text" class="form-control" placeholder="0" name="discount" @if (isset($dealer)) value="{{ $dealer->discount }}" @else value="0" @endif>
                 </div>
                 @if (isset($dealer))
                     <input type="hidden" name="id" value="{{ $dealer->id }}">

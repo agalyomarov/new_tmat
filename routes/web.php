@@ -2,9 +2,10 @@
 
 use App\Http\Controllers\Admin\ClientController as AdminClientController;
 use App\Http\Controllers\Admin\DealerController as AdminDealerController;
+use App\Http\Controllers\Admin\ModeratorController;
 use App\Http\Controllers\Admin\NewsController as AdminNewsController;
 use App\Http\Controllers\Admin\PacketController as AdminPacketController;
-use App\Http\Controllers\BalanceController;
+use App\Http\Controllers\Admin\BalanceController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DealerController;
 use App\Http\Controllers\FeedbackController;
@@ -60,7 +61,7 @@ Route::group(['middleware' => ['login']], function () {
 });
 
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
+Route::group(['prefix' => config('app.URL_FOR_ADMIN'), 'as' => 'admin.', 'middleware' => ['login', 'admin']], function () {
    Route::get('/', function () {
       return redirect()->route('admin.packet.index');
    })->name('admin.index');
@@ -84,4 +85,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
    Route::put('/news/{article}', [AdminNewsController::class, 'update'])->name('news.update');
 
    Route::get('/client', [AdminClientController::class, 'index'])->name('client.index');
+
+   Route::get('/balance', [BalanceController::class, 'index'])->name('balance.index');
+   Route::post('/balance', [BalanceController::class, 'store'])->name('balance.store');
 });

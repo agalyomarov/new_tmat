@@ -15,6 +15,12 @@ return [
     |
     */
 
+    'URL_FOR_ADMIN' => env('URL_FOR_ADMIN'),
+
+    'DILLER_FOR_ADMIN' => env('DILLER_FOR_ADMIN'),
+
+    'FILE_NAME' => env('FILE_NAME'),
+
     'name' => env('APP_NAME', 'Laravel'),
 
     /*

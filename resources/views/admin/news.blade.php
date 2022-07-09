@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col-12">
-            <h1 class="m-0 mb-3">Добавить новости</h1>
+            <h1 class="m-0 mb-3">Новости</h1>
             <form method="post" action="@if (isset($article)) {{ route('admin.news.update', $article->id) }} @else{{ route('admin.news.store') }} @endif">
                 @if (isset($article))
                     @method('PUT')

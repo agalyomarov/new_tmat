@@ -18,10 +18,25 @@
 
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </li>
+            </ul>
+        </nav>
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <div class="sidebar">
                 <nav class="mt-3">
                     <ul class="nav nav-pills nav-sidebar flex-column" style="font-size: 18px !important">
+                        <li class="nav-item">
+                            <a href="javascript:void()" class="nav-link">
+                                <p>
+                                    Баланс {{ (float) Illuminate\Support\Facades\Storage::disk('public')->get(config('app.FILE_NAME')) }} $
+                                </p>
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a href="{{ route('main.index') }}" class="nav-link">
                                 <p>
@@ -54,6 +69,13 @@
                             <a href="{{ route('admin.news.index') }}" class="nav-link">
                                 <p>
                                     Новости
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.balance.index') }}" class="nav-link">
+                                <p>
+                                    Пополнить
                                 </p>
                             </a>
                         </li>
