@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\ModeratorController;
 use App\Http\Controllers\Admin\NewsController as AdminNewsController;
 use App\Http\Controllers\Admin\PacketController as AdminPacketController;
 use App\Http\Controllers\Admin\BalanceController;
+use App\Http\Controllers\BalanceController as ControllersBalanceController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DealerController;
 use App\Http\Controllers\FeedbackController;
@@ -48,8 +49,8 @@ Route::group(['middleware' => ['login']], function () {
    Route::put('/dealer', [ClientController::class, 'server'])->name('client.server');
 
 
-   Route::get('/balance', [BalanceController::class, 'index'])->name('balance.index');
-   Route::get('/balance_history', [BalanceController::class, 'history'])->name('balance.history');
+   Route::get('/balance', [ControllersBalanceController::class, 'index'])->name('balance.index');
+   Route::get('/balance_history', [ControllersBalanceController::class, 'history'])->name('balance.history');
 
    Route::get('/news', [NewsController::class, 'index'])->name('news.index');
    Route::get('/rules', [RulesController::class, 'index'])->name('rules.index');
