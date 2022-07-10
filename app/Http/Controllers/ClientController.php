@@ -36,12 +36,23 @@ class ClientController extends Controller
         }
     }
 
-    public function edit(Client $client)
+    public function edit(Client $client, Request $request)
     {
+        // $dealer = Dealer::where('login', session('login'))->first();
+        // $clients = Client::where('clients.dealer_id', $dealer->id)->leftjoin('client_packets', 'clients.id', '=', 'client_packets.client_id')->leftjoin('packets', 'packets.id', '=', 'client_packets.packet_id')->select('clients.*', 'client_packets.id as client_packets.id', 'client_packets.end_date', 'packets.title as packet_title')->paginate();
+        // $countClients = Client::where('clients.dealer_id', $dealer->id)->count();
+        // return view('dealer', compact('dealer', 'clients', 'countClients', 'client'));
+        $q = $request->query('q');
+        if (!$q) {
+            $q = 10;
+        }
         $dealer = Dealer::where('login', session('login'))->first();
-        $clients = Client::where('clients.dealer_id', $dealer->id)->leftjoin('client_packets', 'clients.id', '=', 'client_packets.client_id')->leftjoin('packets', 'packets.id', '=', 'client_packets.packet_id')->select('clients.*', 'client_packets.id as client_packets.id', 'client_packets.end_date', 'packets.title as packet_title')->paginate();
+        $clients = Client::where('clients.dealer_id', $dealer->id)->leftjoin('client_packets', 'clients.id', '=', 'client_packets.client_id')->leftjoin('packets', 'packets.id', '=', 'client_packets.packet_id')->select('clients.*', 'client_packets.id as client_packet_id', 'client_packets.end_date', 'packets.title as packet_title', 'packets.price as packet_price')->paginate($q);
+        $elementCount = Client::where('clients.dealer_id', $dealer->id)->leftjoin('client_packets', 'clients.id', '=', 'client_packets.client_id')->leftjoin('packets', 'packets.id', '=', 'client_packets.packet_id')->select('clients.*', 'client_packets.id as client_packet_id', 'client_packets.end_date', 'packets.title as packet_title', 'packets.price as packet_price')->count();
         $countClients = Client::where('clients.dealer_id', $dealer->id)->count();
-        return view('dealer', compact('dealer', 'clients', 'countClients', 'client'));
+
+        // dd($clients);
+        return view('dealer', compact('dealer', 'clients', 'countClients', 'elementCount', 'client'));
     }
 
     public function update(Client $client, Request $request)

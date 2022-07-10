@@ -278,7 +278,9 @@
                                                                             <td width="773">
                                                                                 <p align="center">
                                                                                     <span style="white-space: nowrap;">
-                                                                                        {{ Carbon\Carbon::parse($client->end_date)->format('d-m-Y') }}
+                                                                                        @if ($client->end_date)
+                                                                                            {{ Carbon\Carbon::parse($client->end_date)->format('d-m-Y') }}
+                                                                                        @endif
                                                                                     </span>
                                                                                 </p>
                                                                             </td>
