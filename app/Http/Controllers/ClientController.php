@@ -85,9 +85,10 @@ class ClientController extends Controller
     {
         $data = $request->all();
         if (isset($data['users']) && count($data['users']) > 0 && $data['server']) {
+            // dd($data['users']);
             $clients = array_unique($data['users']);
             $clients = array_values($clients);
-            Client::where('dealer_id', Dealer::where('login', session('login'))->first()->id)->update(['server' => $data['server']]);
+            Client::where('dealer_id', Dealer::where('login', session('login'))->first()->id)->whereIn('id', $data['users'])->update(['server' => $data['server']]);
             return redirect()->route('dealer.index');
         }
         return redirect()->route('dealer.index');
