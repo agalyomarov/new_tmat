@@ -38,19 +38,7 @@ class PacketController extends Controller
             $pricePackets = $priceForDay * $different;
             if ($dealer->balance < $pricePackets) {
                 return redirect()->route('dealer.index');
-            }
-            $dealerClients = DB::table('client_packets')->where('dealer_id', $dealer->id)->get()->count();
-            if ($dealerClients > 300) {
-                $pricePackets = round(50 * $pricePackets / 100, 2);
-            } else if ($dealerClients > 200) {
-                $pricePackets = round(40 * $pricePackets / 100, 2);
-            } else if ($dealerClients > 130) {
-                $pricePackets = round(30 * $pricePackets / 100, 2);
-            } else if ($dealerClients > 100) {
-                $pricePackets = round(20 * $pricePackets / 100, 2);
-            } else if ($dealerClients > 50) {
-                $pricePackets = round(10 * $pricePackets / 100, 2);
-            }
+            };
             DB::beginTransaction();
             foreach ($packets as $packet) {
                 DB::table('client_packets')->insert(['dealer_id' => $dealer->id, 'client_id' => $client->id, 'packet_id' => $packet->id, 'end_date' => $data['data2']]);
