@@ -28,6 +28,9 @@ class PacketController extends Controller
             $startTime = time();
             $endTime = Carbon::parse($data['data2'])->timestamp;
             $different = $endTime - $startTime;
+            if ($different <= 0) {
+                return redirect()->route('dealer.index');
+            }
             $different = (int)($different / 3600 / 24);
             $packets = Packet::whereIn('id', $data['packets'])->get();
             $totalPrice = 0;
@@ -51,6 +54,7 @@ class PacketController extends Controller
         } catch (\Exception $e) {
             DB::rollback();
             return redirect()->route('dealer.index');
+            // return $e->getMessage();
         }
     }
     public function stop($client_packet, Request $request)
