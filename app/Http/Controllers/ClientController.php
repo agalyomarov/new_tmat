@@ -15,8 +15,8 @@ class ClientController extends Controller
         // dd($data);
         try {
             $validator = Validator::make($data, [
-                'login' => ['required', 'unique:clients,login', 'min:5', 'max:15'],
-                'password' => ['required', 'min:5', 'max:15'],
+                'login' => ['required', 'unique:clients,login', 'min:4', 'max:15'],
+                'password' => ['required', 'min:4', 'max:15'],
                 'server' => ['required', 'integer'],
                 'description' => [],
             ]);
@@ -61,8 +61,8 @@ class ClientController extends Controller
         // dd($data);
         try {
             $validator = Validator::make($data, [
-                'login' => ['required', 'unique:clients,login,' . $client->id, 'min:5', 'max:15'],
-                'password' => ['required', 'min:5', 'max:15'],
+                'login' => ['required', 'unique:clients,login,' . $client->id, 'min:4', 'max:15'],
+                'password' => ['required', 'min:4', 'max:15'],
                 'server' => ['required', 'integer'],
                 'description' => [],
             ]);
