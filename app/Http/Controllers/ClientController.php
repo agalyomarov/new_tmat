@@ -15,8 +15,8 @@ class ClientController extends Controller
         // dd($data);
         try {
             $validator = Validator::make($data, [
-                'login' => ['required', 'unique:clients,login', 'min:4', 'max:15'],
-                'password' => ['required', 'min:4', 'max:15'],
+                'login' => ['required', 'unique:clients,login', 'min:3', 'max:15'],
+                'password' => ['required', 'min:3', 'max:15'],
                 'server' => ['required', 'integer'],
                 'description' => [],
             ]);
@@ -38,10 +38,6 @@ class ClientController extends Controller
 
     public function edit(Client $client, Request $request)
     {
-        // $dealer = Dealer::where('login', session('login'))->first();
-        // $clients = Client::where('clients.dealer_id', $dealer->id)->leftjoin('client_packets', 'clients.id', '=', 'client_packets.client_id')->leftjoin('packets', 'packets.id', '=', 'client_packets.packet_id')->select('clients.*', 'client_packets.id as client_packets.id', 'client_packets.end_date', 'packets.title as packet_title')->paginate();
-        // $countClients = Client::where('clients.dealer_id', $dealer->id)->count();
-        // return view('dealer', compact('dealer', 'clients', 'countClients', 'client'));
         $q = $request->query('q');
         if (!$q) {
             $q = 10;
@@ -61,8 +57,8 @@ class ClientController extends Controller
         // dd($data);
         try {
             $validator = Validator::make($data, [
-                'login' => ['required', 'unique:clients,login,' . $client->id, 'min:4', 'max:15'],
-                'password' => ['required', 'min:4', 'max:15'],
+                'login' => ['required', 'unique:clients,login,' . $client->id, 'min:3', 'max:15'],
+                'password' => ['required', 'min:3', 'max:15'],
                 'server' => ['required', 'integer'],
                 'description' => [],
             ]);

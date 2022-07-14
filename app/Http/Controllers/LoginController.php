@@ -43,8 +43,8 @@ class LoginController extends Controller
                 return redirect()->route('main.index');
             } else if ($data['action'] == 'register') {
                 $validator = Validator::make($data, [
-                    'login' => ['required', 'unique:dealers,login', 'min:4', 'max:15'],
-                    'password' => ['required', 'min:4', 'max:15'],
+                    'login' => ['required', 'unique:dealers,login', 'min:3', 'max:15'],
+                    'password' => ['required', 'min:3', 'max:15'],
                     'email' => ['required', 'email']
                 ]);
                 if ($validator->fails()) {
