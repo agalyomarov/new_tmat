@@ -13,4 +13,4 @@ yarn-error.log
 /.idea
 /.vscode
 /AdminLTE-3.2.0
-
+.env
