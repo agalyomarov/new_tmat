@@ -126,7 +126,7 @@
                                                                     {{ $error[0] }}
                                                                 </div>
                                                             @endforeach
-                                                            <table>
+                                                            <table class="all_users">
                                                                 <tbody>
                                                                     <tr>
                                                                         <td><strong>Логин</strong></td>
@@ -320,15 +320,11 @@
                                                                             </td>
                                                                             <td width="103">
                                                                                 <p align="center">
-                                                                                    @if ($client->client_packet_id)
-                                                                                        <a href="{{ route('packet.stop', $client->client_packet_id) }}">
-                                                                                            <span title="Остановить"><img src="{{ asset('images/stop.png') }}" border="0"></span>
-                                                                                        </a>
-                                                                                    @else
-                                                                                        <a href="{{ route('packet.stop', $client->id) }}">
-                                                                                            <span title="Остановить"><img src="{{ asset('images/stop.png') }}" border="0"></span>
-                                                                                        </a>
-                                                                                    @endif
+                                                                                <div style="text-align:center">
+                                                                                    <span title="Остановить">
+                                                                                        <img src="{{ asset('images/stop.png') }}" border="0" class="stop_packet" data-url="{{ route('packet.stop', $client->id) }}">
+                                                                                    </span>
+                                                                                </div>
                                                                                 </p>
                                                                             </td>
                                                                         </tr>
@@ -423,6 +419,7 @@
         const serverTag1Value = serverTag1.getAttribute('value');
         const checkAllUsers = document.querySelector('#check_all_users');
         const users = document.querySelectorAll('input.check_users');
+        const allUsers = document.querySelector('table.list');
         if (serverTag1.querySelector(`option[value="${serverTag1Value}"]`)) {
             serverTag1.querySelector(`option[value="${serverTag1Value}"]`).setAttribute('selected', true);
         }
@@ -438,6 +435,15 @@
                 }
                 event.target.dataset.change = 'off';
             }
+        });
+        allUsers.addEventListener('click', function(event) {
+            if (event.target.classList.contains('stop_packet')) {
+                const check = confirm('Вы точно хотите остановить пакеты клиента?');
+                if (check) {
+                    window.location.href = event.target.dataset.url;
+                }
+            }
+            // console.log(event.target);
         });
     </script>
 </body>
