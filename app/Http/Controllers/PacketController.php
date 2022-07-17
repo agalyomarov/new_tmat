@@ -20,7 +20,7 @@ class PacketController extends Controller
         $client_packets = DB::table('client_packets')->where('client_id', $client->id)->orderBy('end_date', 'DESC')->get(['packet_id', 'end_date'])->toArray();
         $client_packet = [];
         foreach ($client_packets as $key => $packet) {
-            $client_packet[$packet->packet_id] = $client_packets[0]->end_date;
+            $client_packet[$packet->packet_id] = $client_packets[$key]->end_date;
         }
         $client_packets = $client_packet;
         // dd($client_packets);
@@ -38,27 +38,17 @@ class PacketController extends Controller
             if ($different <= 0) {
                 return redirect()->route('dealer.index');
             }
-            $packets = Packet::whereIn('id', $data['packets'])->get();
+            // dd($different);
             $totalPrice = 0;
             DB::beginTransaction();
-            foreach ($packets as $packet) {
-                $checkPacket = DB::table('client_packets')->where(['dealer_id' => $dealer->id, 'client_id' => $client->id, 'packet_id' => $packet->id])->first();
-                if ($checkPacket) {
-                    if ($data['data2'] > $checkPacket->end_date) {
-                        DB::table('client_packets')->where('id', $checkPacket->id)->update(['end_date' => $data['data2']]);
-                        $start_time_packet = Carbon::parse($checkPacket->end_date)->timestamp;
-                        $different = $endTime - $start_time_packet;
-                        $different = (int)($different / 3600 / 24);
-                        $priceForDay = (float)$packet->price / 30;
-                        $pricePacket = $priceForDay * $different;
-                        $totalPrice += $pricePacket;
-                        if (round($pricePacket, 2) > 0) {
-                            BalanceHistory::create(['dealer_id' => $dealer->id, 'date' => Carbon::now(), 'price' => '-' . round($pricePacket, 2), 'action' => 'Куплен пакет: ' . $packet->title, 'client' => $client->login]);
-                        }
-                    }
-                } else {
-                    DB::table('client_packets')->insert(['dealer_id' => $dealer->id, 'client_id' => $client->id, 'packet_id' => $packet->id, 'end_date' => $data['data2']]);
-                    $different = $endTime - $startTime;
+            $packet = Packet::find($data['packet']);
+            // dd($packet);
+            $checkPacket = DB::table('client_packets')->where(['dealer_id' => $dealer->id, 'client_id' => $client->id, 'packet_id' => $packet->id])->first();
+            if ($checkPacket) {
+                if ($data['data2'] > $checkPacket->end_date) {
+                    DB::table('client_packets')->where('id', $checkPacket->id)->update(['end_date' => $data['data2']]);
+                    $start_time_packet = Carbon::parse($checkPacket->end_date)->timestamp;
+                    $different = $endTime - $start_time_packet;
                     $different = (int)($different / 3600 / 24);
                     $priceForDay = (float)$packet->price / 30;
                     $pricePacket = $priceForDay * $different;
@@ -66,6 +56,16 @@ class PacketController extends Controller
                     if (round($pricePacket, 2) > 0) {
                         BalanceHistory::create(['dealer_id' => $dealer->id, 'date' => Carbon::now(), 'price' => '-' . round($pricePacket, 2), 'action' => 'Куплен пакет: ' . $packet->title, 'client' => $client->login]);
                     }
+                }
+            } else {
+                DB::table('client_packets')->insert(['dealer_id' => $dealer->id, 'client_id' => $client->id, 'packet_id' => $packet->id, 'end_date' => $data['data2']]);
+                $different = $endTime - $startTime;
+                $different = (int)($different / 3600 / 24);
+                $priceForDay = (float)$packet->price / 30;
+                $pricePacket = $priceForDay * $different;
+                $totalPrice += $pricePacket;
+                if (round($pricePacket, 2) > 0) {
+                    BalanceHistory::create(['dealer_id' => $dealer->id, 'date' => Carbon::now(), 'price' => '-' . round($pricePacket, 2), 'action' => 'Куплен пакет: ' . $packet->title, 'client' => $client->login]);
                 }
             }
             $dealer->balance = round($dealer->balance - $totalPrice, 2);

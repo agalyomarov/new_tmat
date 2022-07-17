@@ -122,8 +122,8 @@
                                                                 <table border="1" class="list">
                                                                     <tbody>
                                                                         <tr>
-                                                                            <th>
-                                                                                <input type="checkbox" class="checkAll" data-change="off">
+                                                                            <th width="40">
+                                                                                {{-- <input type="checkbox" class="checkAll" data-change="off"> --}}
                                                                             </th>
                                                                             <th width="84">
                                                                                 Пакет
@@ -144,7 +144,8 @@
                                                                             @endphp
                                                                             <tr class="@if ($loop->odd) norm @else alt @endif ">
                                                                                 <td style="text-align:center;">
-                                                                                    <input @if (isset($client_packets[$packet->id])) checked @endif data-price="{{ $packet->price }}" class="packets" type="checkbox" value="{{ $packet->id }}" name="packets[]">
+                                                                                    <input onclick="checkPacket(this)" style="width: 25px" data-price="{{ $packet->price }}" class="packets" type="radio" value="{{ $packet->id }}" name="packet"
+                                                                                        data-end_date=@if (isset($client_packets[$packet->id])) {{ Date::parse($client_packets[$packet->id])->format('Y-m-d') }} @else {{ Carbon\Carbon::now()->addMonth()->format('Y-m-d') }} @endif>
                                                                                 </td>
                                                                                 <td align="center" width="4000">
                                                                                     <p width="100"><b> <span title="Выбери меня">{{ $packet->title }}</span>
@@ -164,19 +165,20 @@
                                                                     <tbody>
                                                                         <tr>
                                                                             <td colspan="4">
-                                                                                <strong>Начало:
-                                                                                    <input disabled type="date" value="{{ Carbon\Carbon::now()->format('Y-m-d') }}">
+                                                                                <strong>
+                                                                                    Начало:
+                                                                                    <input disabled type="date" id="date1" value="{{ Carbon\Carbon::now()->format('Y-m-d') }}">
                                                                                     <br><br>
                                                                                     <strong>Конец:&nbsp;&nbsp;
-                                                                                        <input id="date2" type="date" name="data2" value="{{ Carbon\Carbon::now()->addMonth()->format('Y-m-d') }}">
+                                                                                        <input id="date2" type="date" name="data2" value="{{ Carbon\Carbon::now()->addDays(30)->format('Y-m-d') }}">
                                                                                         или Период:
-                                                                                        <a data-date={{ Carbon\Carbon::now()->addMonth()->format('Y-m-d') }} href="javascript:void(0);" onclick="addMonth(this)">1 мес</a>,
-                                                                                        <a data-date={{ Carbon\Carbon::now()->addMonths(2)->format('Y-m-d') }} href="javascript:void(0);" onclick="addMonth(this)">2 мес</a>,
-                                                                                        <a data-date={{ Carbon\Carbon::now()->addMonths(3)->format('Y-m-d') }} href="javascript:void(0);" onclick="addMonth(this)">3 мес</a>,
-                                                                                        <a data-date={{ Carbon\Carbon::now()->addMonths(4)->format('Y-m-d') }} href="javascript:void(0);" onclick="addMonth(this)">4 мес</a>,
-                                                                                        <a data-date={{ Carbon\Carbon::now()->addMonths(5)->format('Y-m-d') }} href="javascript:void(0);" onclick="addMonth(this)">5 мес</a>,
-                                                                                        <a data-date={{ Carbon\Carbon::now()->addMonths(6)->format('Y-m-d') }} href="javascript:void(0);" onclick="addMonth(this)">6 мес</a>,
-                                                                                        <a data-date={{ Carbon\Carbon::now()->addMonths(12)->format('Y-m-d') }} href="javascript:void(0);" onclick="addMonth(this)">12 мес</a>
+                                                                                        <a data-date="1" href="javascript:void(0);" onclick="addMonth(this)">1 мес</a>,
+                                                                                        <a data-date="2" href="javascript:void(0);" onclick="addMonth(this)">2 мес</a>,
+                                                                                        <a data-date="3" href="javascript:void(0);" onclick="addMonth(this)">3 мес</a>,
+                                                                                        <a data-date="4" href="javascript:void(0);" onclick="addMonth(this)">4 мес</a>,
+                                                                                        <a data-date="5" href="javascript:void(0);" onclick="addMonth(this)">5 мес</a>,
+                                                                                        <a data-date="6" href="javascript:void(0);" onclick="addMonth(this)">6 мес</a>,
+                                                                                        <a data-date="12" href="javascript:void(0);" onclick="addMonth(this)">12 мес</a>
                                                                                         <br><br>
                                                                                         <strong>Общая стоимость:</strong>
                                                                                         <strong>
@@ -272,29 +274,35 @@
     <div style="display: none;"></div>
     <script src="{{ asset('js/moment.js') }}"></script>
     <script>
+        Date.prototype.addDays = function(days) {
+            let date = new Date(this.valueOf());
+            date.setDate(date.getDate() + days);
+            return date;
+        }
         const packets = document.querySelectorAll('input.packets');
         const checkAll = document.querySelector('input.checkAll');
         const date2 = document.querySelector('#date2');
+        const date1 = document.querySelector('#date1');
         const totalPrice = document.querySelector('#total_price');
         const balance = document.querySelector('#balance');
         const btnForBuy = document.querySelector('#btn_for_buy');
         const message = document.querySelector('#message');
         const d = new Date();
-        checkAll.addEventListener('change', function() {
-            const change = checkAll.dataset.change;
-            if (change == 'off') {
-                for (let i = 0; i < packets.length; i++) {
-                    packets[i].checked = true;
-                }
-                checkAll.dataset.change = 'on'
-            }
-            if (change == 'on') {
-                for (let i = 0; i < packets.length; i++) {
-                    packets[i].checked = false;
-                }
-                checkAll.dataset.change = 'off'
-            }
-        });
+        // checkAll.addEventListener('change', function() {
+        //     const change = checkAll.dataset.change;
+        //     if (change == 'off') {
+        //         for (let i = 0; i < packets.length; i++) {
+        //             packets[i].checked = true;
+        //         }
+        //         checkAll.dataset.change = 'on'
+        //     }
+        //     if (change == 'on') {
+        //         for (let i = 0; i < packets.length; i++) {
+        //             packets[i].checked = false;
+        //         }
+        //         checkAll.dataset.change = 'off'
+        //     }
+        // });
 
         setInterval(function() {
             let generalPrice = 0;
@@ -302,6 +310,7 @@
                 if (packets[i].checked) {
                     generalPrice += parseFloat(packets[i].dataset.price);
                     generalPrice = parseFloat(generalPrice.toFixed(2));
+
                 }
             }
             let priceForDay = parseFloat((generalPrice / 30));
@@ -321,7 +330,8 @@
             }
         }, 500);
         const addMonth = function(event) {
-            date2.value = event.dataset.date;
+            let date = new Date(date2.value);
+            date2.value = date.addDays(event.dataset.date * 30).toISOString().split('T')[0];
         }
         btnForBuy.addEventListener('click', function(event) {
             if (event.target.dataset.status == 'balance') {
@@ -340,6 +350,9 @@
         const removeMessage = function() {
             message.classList.add('hide');
             message.textContent = '';
+        }
+        const checkPacket = function(event) {
+            date2.value = event.dataset.end_date;
         }
     </script>
 </body>
