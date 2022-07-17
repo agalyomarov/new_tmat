@@ -16,6 +16,7 @@ class DealerController extends Controller
     {
 
         $q = $request->query('q');
+        $s = $request->query('s');
         if (!$q) {
             $q = 10;
         }
@@ -24,11 +25,21 @@ class DealerController extends Controller
         $elementCount = Client::where('clients.dealer_id', $dealer->id)->leftjoin('client_packets', 'clients.id', '=', 'client_packets.client_id')->leftjoin('packets', 'packets.id', '=', 'client_packets.packet_id')->select('clients.*', 'client_packets.id as client_packet_id', 'client_packets.end_date', 'packets.title as packet_title', 'packets.price as packet_price')->count();
 
         $countClients = Client::where('clients.dealer_id', $dealer->id)->count();
-        $clients = Client::where('clients.dealer_id', $dealer->id)->paginate($q);
-        foreach ($clients as $key => $client) {
-            $clients[$key]->packets = DB::table('client_packets')->where('client_id', $client->id)->leftjoin('packets', 'client_packets.packet_id', '=', 'packets.id')->select('packets.title', 'packets.price', 'client_packets.end_date')->get();
+        $allClients = Client::where('clients.dealer_id', $dealer->id)->where('clients.login', 'LIKE', "%$s%")->orderBy('clients.login', 'ASC')->paginate($q);
+        $pClients = [];
+        $unPClients = [];
+        foreach ($allClients as $key => $client) {
+            $packets = DB::table('client_packets')->where('client_id', $client->id)->leftjoin('packets', 'client_packets.packet_id', '=', 'packets.id')->select('packets.title', 'packets.price', 'client_packets.end_date')->get();
+            if (count($packets)) {
+                $client->packets = $packets;
+                array_push($pClients, $client);
+            } else {
+                $client->packets = array();
+                array_push($unPClients, $client);
+            }
         }
+        $clients = array_merge($unPClients, $pClients);
         // dd($clients);
-        return view('dealer', compact('dealer', 'clients', 'countClients', 'elementCount'));
+        return view('dealer', compact('dealer', 'clients', 'countClients', 'elementCount', 'allClients'));
     }
 }

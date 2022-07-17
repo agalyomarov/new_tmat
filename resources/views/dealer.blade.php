@@ -20,6 +20,11 @@
             /* background-color: blue; */
             width: 400px;
         }
+
+        .form-group {
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 
@@ -162,6 +167,12 @@
                                                                     </tr>
                                                                 </tbody>
                                                             </table>
+                                                        </form>
+                                                        <form method="GET">
+                                                            <div class="form-group">
+                                                                <input type="text" name="s">
+                                                                <button type="submit">Поиск</button>
+                                                            </div>
                                                         </form>
                                                         <left>
                                                             <font color="red"><b>* </b></font><b>
@@ -324,7 +335,7 @@
                                                                     @endforeach
                                                                 </tbody>
                                                             </table>
-                                                            {{ $clients->links('vendor.pagination.default', compact('elementCount')) }}
+                                                            {{ $allClients->links('vendor.pagination.default', compact('elementCount')) }}
                                                             <br>
                                                             <b>
                                                                 <font color="blue"></font>

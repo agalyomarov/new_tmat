@@ -11,6 +11,12 @@
             font-size: 20px;
             margin-bottom: 15px;
         }
+
+        body {
+            /* background: rgb(66, 38, 120); */
+            /* background: rgb(28, 42, 153); */
+
+        }
     </style>
 </head>
 

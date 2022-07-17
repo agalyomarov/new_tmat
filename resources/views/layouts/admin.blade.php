@@ -79,6 +79,13 @@
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="javascript:void()" class="nav-link">
+                                <p>
+                                    Клиенты : {{ Illuminate\Support\Facades\DB::table('client_packets')->groupBy('client_id')->selectRaw('count(*) as total')->get()->count() }}
+                                </p>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
             </div>
