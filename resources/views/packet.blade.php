@@ -145,7 +145,7 @@
                                                                             <tr class="@if ($loop->odd) norm @else alt @endif ">
                                                                                 <td style="text-align:center;">
                                                                                     <input onclick="checkPacket(this)" style="width: 25px" data-price="{{ $packet->price }}" class="packets" type="radio" value="{{ $packet->id }}" name="packet"
-                                                                                        data-end_date=@if (isset($client_packets[$packet->id])) {{ Date::parse($client_packets[$packet->id])->format('Y-m-d') }} @else {{ Carbon\Carbon::now()->addMonth()->format('Y-m-d') }} @endif>
+                                                                                        data-end_date=@if (isset($client_packets[$packet->id])) {{ Date::parse($client_packets[$packet->id])->format('Y-m-d') }} @else {{ Carbon\Carbon::now()->format('Y-m-d') }} @endif>
                                                                                 </td>
                                                                                 <td align="center" width="4000">
                                                                                     <p width="100"><b> <span title="Выбери меня">{{ $packet->title }}</span>
@@ -331,7 +331,7 @@
             }
         }, 500);
         const addMonth = function(event) {
-            let date = new Date(date2.value);
+            let date = new Date(date1.value);
             date2.value = date.addDays(event.dataset.date * 30).toISOString().split('T')[0];
         }
         btnForBuy.addEventListener('click', function(event) {
