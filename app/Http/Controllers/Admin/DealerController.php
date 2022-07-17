@@ -25,8 +25,8 @@ class DealerController extends Controller
         // dd($data);
         try {
             $validator = Validator::make($data, [
-                'login' => ['required', 'unique:dealers,login', 'min:5', 'max:15'],
-                'password' => ['required', 'min:5', 'max:15'],
+                'login' => ['required', 'unique:dealers,login', 'min:3', 'max:15'],
+                'password' => ['required', 'min:3', 'max:15'],
                 'email' => ['required', 'email'],
             ]);
             if ($validator->fails()) {
@@ -63,8 +63,8 @@ class DealerController extends Controller
         // dd($data);
         try {
             $validator = Validator::make($data, [
-                'login' => ['required', 'unique:dealers,login,' . $data['id'], 'min:5', 'max:15',],
-                'password' => ['required', 'min:5', 'max:15'],
+                'login' => ['required', 'unique:dealers,login,' . $data['id'], 'min:3', 'max:15',],
+                'password' => ['required', 'min:3', 'max:15'],
                 'email' => ['required', 'email'],
             ]);
             if ($validator->fails()) {

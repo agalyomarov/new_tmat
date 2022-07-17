@@ -264,23 +264,27 @@
                                                                             <td width="773">
                                                                                 <p align="center">
                                                                                     <span style="white-space: nowrap;">
-                                                                                        {{ $client->packet_title }}
+                                                                                        @foreach ($client->packets as $packet)
+                                                                                            {{ $packet->title }}<br>
+                                                                                        @endforeach
                                                                                     </span>
                                                                                 </p>
                                                                             </td>
                                                                             <td width="773">
                                                                                 <p align="center">
                                                                                     <span style="white-space: nowrap;">
-                                                                                        {{ $client->packet_price }}
+                                                                                        @foreach ($client->packets as $packet)
+                                                                                            {{ $packet->price }}<br>
+                                                                                        @endforeach
                                                                                     </span>
                                                                                 </p>
                                                                             </td>
                                                                             <td width="773">
                                                                                 <p align="center">
                                                                                     <span style="white-space: nowrap;">
-                                                                                        @if ($client->end_date)
-                                                                                            {{ Carbon\Carbon::parse($client->end_date)->format('d-m-Y') }}
-                                                                                        @endif
+                                                                                        @foreach ($client->packets as $packet)
+                                                                                            {{ Carbon\Carbon::parse($packet->end_date)->format('d-m-Y') }}<br>
+                                                                                        @endforeach
                                                                                     </span>
                                                                                 </p>
                                                                             </td>
@@ -310,7 +314,7 @@
                                                                                             <span title="Остановить"><img src="{{ asset('images/stop.png') }}" border="0"></span>
                                                                                         </a>
                                                                                     @else
-                                                                                        <a href="javascript:void()">
+                                                                                        <a href="{{ route('packet.stop', $client->id) }}">
                                                                                             <span title="Остановить"><img src="{{ asset('images/stop.png') }}" border="0"></span>
                                                                                         </a>
                                                                                     @endif

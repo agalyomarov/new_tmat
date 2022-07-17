@@ -133,10 +133,18 @@
                                                                                 Цена/мес.
                                                                             </th>
                                                                         </tr>
+                                                                        @php
+                                                                            $end_date = 0;
+                                                                        @endphp
                                                                         @foreach ($packets as $packet)
+                                                                            @php
+                                                                                if (isset($client_packets[$packet->id])) {
+                                                                                    $end_date = $client_packets[$packet->id];
+                                                                                }
+                                                                            @endphp
                                                                             <tr class="@if ($loop->odd) norm @else alt @endif ">
                                                                                 <td style="text-align:center;">
-                                                                                    <input data-price="{{ $packet->price }}" class="packets" type="checkbox" value="{{ $packet->id }}" name="packets[]">
+                                                                                    <input @if (isset($client_packets[$packet->id])) checked @endif data-price="{{ $packet->price }}" class="packets" type="checkbox" value="{{ $packet->id }}" name="packets[]">
                                                                                 </td>
                                                                                 <td align="center" width="4000">
                                                                                     <p width="100"><b> <span title="Выбери меня">{{ $packet->title }}</span>
@@ -149,6 +157,7 @@
                                                                                 </td>
                                                                             </tr>
                                                                         @endforeach
+                                                                        {{-- @dd($end_date); --}}
                                                                     </tbody>
                                                                 </table>
                                                                 <table border="0" class="list">
