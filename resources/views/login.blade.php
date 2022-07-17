@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Войти/Зарегистрироватся</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/desing.css') }}">
     <style>
         .error {
             color: white;
@@ -13,9 +14,9 @@
         }
 
         body {
-            /* background: rgb(66, 38, 120); */
-            /* background: rgb(28, 42, 153); */
-
+            background-position: 50% 100%;
+            background-size: cover;
+            color: #fff
         }
     </style>
 </head>
