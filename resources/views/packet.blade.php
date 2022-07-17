@@ -313,6 +313,7 @@
 
                 }
             }
+            let d = new Date(date1.value);
             let priceForDay = parseFloat((generalPrice / 30));
             const startTime = (d.getTime() / 1000).toFixed();
             let endTime = new Date(date2.value).getTime();
@@ -352,7 +353,9 @@
             message.textContent = '';
         }
         const checkPacket = function(event) {
-            date2.value = event.dataset.end_date;
+            let date = new Date(event.dataset.end_date);
+            date1.value = event.dataset.end_date;
+            date2.value = date.addDays(30).toISOString().split('T')[0];
         }
     </script>
 </body>
