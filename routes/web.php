@@ -44,8 +44,8 @@ Route::group(['middleware' => ['login']], function () {
    Route::get('/dealer', [DealerController::class, 'index'])->name('dealer.index');
 
    Route::post('/client', [ClientController::class, 'store'])->name('client.store');
-   Route::get('/dealer/{client}', [ClientController::class, 'edit'])->name('client.edit');
-   Route::put('/dealer/{client}', [ClientController::class, 'update'])->name('client.update');
+   Route::get('/dealer/{cclient}', [ClientController::class, 'edit'])->name('client.edit');
+   Route::put('/dealer/{cclient}', [ClientController::class, 'update'])->name('client.update');
    Route::put('/dealer', [ClientController::class, 'server'])->name('client.server');
 
 

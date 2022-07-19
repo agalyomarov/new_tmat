@@ -111,12 +111,12 @@
                                                         </b>
                                                     </center>
                                                     <center>
-                                                        <form action="@if (isset($client)) {{ route('client.update', $client->id) }}  @else {{ route('client.store') }} @endif" method="post">
-                                                            @if (isset($client))
+                                                        <form action="@if (isset($cclient)) {{ route('client.update', $cclient->id) }}  @else {{ route('client.store') }} @endif" method="post">
+                                                            @if (isset($cclient))
                                                                 @method('PUT')
                                                             @endif
                                                             @csrf
-                                                            @if (isset($client))
+                                                            @if (isset($cclient))
                                                                 <h3 style="margin-bottom:5px;">Редактировать пользователья</h3>
                                                             @else
                                                                 <h3 style="margin-bottom:5px;">Новый пользователь</h3>
@@ -131,19 +131,19 @@
                                                                     <tr>
                                                                         <td><strong>Логин</strong></td>
                                                                         <td>
-                                                                            <input type="text" class="input_200" maxlength="15" name="login" value=@if (isset($client)) {{ $client->login }} @endif>
+                                                                            <input type="text" class="input_200" maxlength="15" name="login" value=@if (isset($cclient)) {{ $cclient->login }} @endif>
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td><strong>Пароль</strong></td>
                                                                         <td>
-                                                                            <input type="text" class="input_200" maxlength="15" name="password" value=@if (isset($client)) {{ $client->password }} @endif>
+                                                                            <input type="text" class="input_200" maxlength="15" name="password" value=@if (isset($cclient)) {{ $cclient->password }} @endif>
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td><strong>Номер сервера</strong></td>
                                                                         <td>
-                                                                            <select id="server_tag_1" name="server" value=@if (isset($client)) {{ $client->server }} @endif>
+                                                                            <select id="server_tag_1" name="server" value=@if (isset($cclient)) {{ $cclient->server }} @endif>
                                                                                 @include('includes.servers')
                                                                             </select>
                                                                         </td>
@@ -153,7 +153,7 @@
                                                                         <td>
                                                                             <textarea name="description" maxlength="58" style="width:242px; height:35px;color:black">
 @if (isset($client))
-{{ $client->description }}
+{{ $cclient->description }}
 @endif
 </textarea>
                                                                         </td>

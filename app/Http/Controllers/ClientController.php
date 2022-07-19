@@ -37,8 +37,9 @@ class ClientController extends Controller
         }
     }
 
-    public function edit(Client $client, Request $request)
+    public function edit(Client $cclient, Request $request)
     {
+        // dd($client);
         $q = $request->query('q');
         $s = $request->query('s');
         if (!$q) {
@@ -63,17 +64,16 @@ class ClientController extends Controller
             }
         }
         $clients = array_merge($unPClients, $pClients);
-        // dd($clients);
-        return view('dealer', compact('dealer', 'clients', 'countClients', 'elementCount', 'allClients', 'client'));
+        return view('dealer', compact('dealer', 'clients', 'countClients', 'elementCount', 'allClients', 'cclient'));
     }
 
-    public function update(Client $client, Request $request)
+    public function update(Client $cclient, Request $request)
     {
         $data = $request->all();
         // dd($data);
         try {
             $validator = Validator::make($data, [
-                'login' => ['required', 'unique:clients,login,' . $client->id, 'min:3', 'max:15'],
+                'login' => ['required', 'min:3', 'max:15', 'unique:clients,login,' . $cclient->id],
                 'password' => ['required', 'min:3', 'max:15'],
                 'server' => ['required', 'integer'],
                 'description' => [],
@@ -87,7 +87,7 @@ class ClientController extends Controller
             $validated = $validator->validated();
             // dd($validated);
             $dealer = Dealer::where('login', session('login'))->first();
-            Client::where(['dealer_id' => $dealer->id, 'id' => $client->id])->update($validated);
+            Client::where(['dealer_id' => $dealer->id, 'id' => $cclient->id])->update($validated);
             return redirect()->route('dealer.index');
         } catch (\Exception $e) {
             return redirect()->route('dealer.index');
