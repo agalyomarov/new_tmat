@@ -1,0 +1,25 @@
+@extends('layouts.admin')
+
+@section('content')
+    <div class="row">
+        <div class="col-sm-6 col-md-6">
+            <h1 class="m-0 mb-3">Серверы</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="card card-primary">
+                <div class="card-body">
+                    <div class="row">
+                        @foreach ($servers as $key => $server)
+                            <div class="col-12 mt-3">
+                                <font>Сервер №{{ $key }}</font>
+                                <input id="range_{{ $key }}" type="hidden" name="range_{{ $key }}" value="" class="irs-hidden-input" tabindex="-1" readonly="">
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection

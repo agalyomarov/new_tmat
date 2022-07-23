@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BalanceHistory;
 use App\Models\Client;
 use App\Models\Dealer;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -43,7 +45,7 @@ class ClientController extends Controller
         $q = $request->query('q');
         $s = $request->query('s');
         if (!$q) {
-            $q = 10;
+            $q = 100;
         }
         $dealer = Dealer::where('login', session('login'))->first();
         // $clients = Client::where('clients.dealer_id', $dealer->id)->leftjoin('client_packets', 'clients.id', '=', 'client_packets.client_id')->leftjoin('packets', 'packets.id', '=', 'client_packets.packet_id')->select('clients.*', 'client_packets.id as client_packet_id', 'client_packets.end_date', 'client_packets.client_id', 'packets.title as packet_title', 'packets.price as packet_price')->paginate($q);
@@ -104,5 +106,39 @@ class ClientController extends Controller
             return redirect()->route('dealer.index');
         }
         return redirect()->route('dealer.index');
+    }
+    public function delete(Client $client)
+    {
+        // dd($client);
+        try {
+            $dealer = Dealer::where('login', session('login'))->first();
+            $client_packets = DB::table('client_packets')->where(['client_packets.client_id' => $client->id, 'client_packets.dealer_id' => $dealer->id])->leftJoin('packets', 'client_packets.packet_id', '=', 'packets.id')->leftJoin('clients', 'client_packets.client_id', '=', 'clients.id')->select('client_packets.*', 'packets.price', 'packets.title', 'clients.login')->get();
+            // dd($client_packets);
+            $totalOstatok = 0;
+            foreach ($client_packets as $packet) {
+                $endDateUnix = strtotime($packet->end_date);
+                $nowDateUnix = strtotime(Carbon::now());
+                $different = $endDateUnix - $nowDateUnix;
+                $different = (int)($different / 3600 / 24);
+                $priceForDay = (float)$packet->price / 30;
+                $ostatok = $priceForDay * $different;
+                $totalOstatok += round($ostatok, 2);
+            }
+            // dd($totalOstatok);
+            if ($totalOstatok > 0) {
+                BalanceHistory::create(['dealer_id' => $dealer->id, 'date' => Carbon::now(), 'price' => '+' . round($totalOstatok, 2), 'action' => 'Клиент удален.Средства возвращен', 'client' => $client->login]);
+            }
+            $dealer->balance += $totalOstatok;
+            DB::beginTransaction();
+            DB::table('client_packets')->where('client_id', $client->id)->delete();
+            $client->delete();
+            $dealer->save();
+            DB::commit();
+            return redirect()->route('dealer.index');
+        } catch (\Exception $e) {
+            DB::rollBack();
+            // return $e->getMessage();
+            return redirect()->route('dealer.index');
+        }
     }
 }

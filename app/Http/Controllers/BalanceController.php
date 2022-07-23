@@ -17,7 +17,7 @@ class BalanceController extends Controller
     {
         $q = $request->query('q');
         if (!$q) {
-            $q = 10;
+            $q = 50;
         }
         $dealer = Dealer::where('login', session('login'))->first();
         $histories = BalanceHistory::where('dealer_id', $dealer->id)->limit($q)->get()->reverse();

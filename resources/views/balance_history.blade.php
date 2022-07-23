@@ -94,10 +94,10 @@
                                                     <form method="GET">
                                                         Элементов на странице:
                                                         <select name="q">
-                                                            <option selected>10</option>
+                                                            <option>10</option>
                                                             <option>15</option>
                                                             <option>20</option>
-                                                            <option>50</option>
+                                                            <option selected>50</option>
                                                             <option>100</option>
                                                             <option>200</option>
                                                             <option>500</option>

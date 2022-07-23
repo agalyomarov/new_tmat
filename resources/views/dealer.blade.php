@@ -190,11 +190,11 @@
                                                         <form method="GET">
                                                             <input type="hidden" name="page" value=""> Элементов на странице:
                                                             <select name="q">
-                                                                <option selected="1">10</option>
+                                                                <option>10</option>
                                                                 <option>15</option>
                                                                 <option>20</option>
                                                                 <option>50</option>
-                                                                <option>100</option>
+                                                                <option selected>100</option>
                                                                 <option>200</option>
                                                                 <option>500</option>
                                                                 <option>5000</option>
@@ -253,6 +253,7 @@
                                                                                 </a>
                                                                             </p>
                                                                         </th>
+                                                                        <th>&nbsp;</th>
                                                                         <th>&nbsp;</th>
                                                                         <th>&nbsp;</th>
                                                                         <th>&nbsp;</th>
@@ -327,6 +328,15 @@
                                                                                 </div>
                                                                                 </p>
                                                                             </td>
+                                                                            <td width="103">
+                                                                                <p align="center">
+                                                                                <div style="text-align:center">
+                                                                                    <span title="Удалить">
+                                                                                        <img src="{{ asset('images/delete.png') }}" border="0" class="delete_client" data-url="{{ route('client.delete', $client->id) }}">
+                                                                                    </span>
+                                                                                </div>
+                                                                                </p>
+                                                                            </td>
                                                                         </tr>
                                                                     @endforeach
                                                                 </tbody>
@@ -348,6 +358,7 @@
                                                                 </b>
                                                             </p>
                                                         </form>
+                                                        <input id="delete_all_users" type="button" style="margin-top:10px;width:250px;text-align:center;cursor:pointer;" value="Удалить все выбранные клиенты">
                                                     </center>
                                                     <p></p>
                                                 </td>
@@ -420,6 +431,17 @@
         const checkAllUsers = document.querySelector('#check_all_users');
         const users = document.querySelectorAll('input.check_users');
         const allUsers = document.querySelector('table.list');
+        const deleteAllUsers = document.querySelector('#delete_all_users');
+        deleteAllUsers.addEventListener('click', function(event) {
+            let checked_users = allUsers.querySelectorAll('input.check_users:checked');
+            for (let i = 0; i < checked_users.length; i++) {
+                fetch(`/dealer/delete/${checked_users[i].value}`);
+                // console.log(checked_users[i].value);
+            }
+            if (checked_users.length > 0) {
+                window.location.reload();
+            }
+        });
         if (serverTag1.querySelector(`option[value="${serverTag1Value}"]`)) {
             serverTag1.querySelector(`option[value="${serverTag1Value}"]`).setAttribute('selected', true);
         }
@@ -439,6 +461,12 @@
         allUsers.addEventListener('click', function(event) {
             if (event.target.classList.contains('stop_packet')) {
                 const check = confirm('Вы точно хотите остановить пакеты клиента?');
+                if (check) {
+                    window.location.href = event.target.dataset.url;
+                }
+            }
+            if (event.target.classList.contains('delete_client')) {
+                const check = confirm('Вы точно хотите удалить клиента?');
                 if (check) {
                     window.location.href = event.target.dataset.url;
                 }

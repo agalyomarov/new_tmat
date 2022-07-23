@@ -18,7 +18,7 @@ class DealerController extends Controller
         $q = $request->query('q');
         $s = $request->query('s');
         if (!$q) {
-            $q = 10;
+            $q = 100;
         }
         $dealer = Dealer::where('login', session('login'))->first();
         // $clients = Client::where('clients.dealer_id', $dealer->id)->leftjoin('client_packets', 'clients.id', '=', 'client_packets.client_id')->leftjoin('packets', 'packets.id', '=', 'client_packets.packet_id')->select('clients.*', 'client_packets.id as client_packet_id', 'client_packets.end_date', 'client_packets.client_id', 'packets.title as packet_title', 'packets.price as packet_price')->paginate($q);
