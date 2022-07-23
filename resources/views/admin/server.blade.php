@@ -7,12 +7,12 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-6">
+        <div class="col-12">
             <div class="card card-primary">
                 <div class="card-body">
                     <div class="row">
                         @foreach ($servers as $key => $server)
-                            <div class="col-12 mt-2">
+                            <div class="col-12  mt-2">
                                 Сервер №{{ $key }} :<font color="red"> {{ $server }} </font>клиентов
                             </div>
                         @endforeach
