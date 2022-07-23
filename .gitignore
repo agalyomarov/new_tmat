@@ -1,4 +1,4 @@
-.env
+/.env
 /storage/app/public
 /node_modules
 /public/build
@@ -15,3 +15,4 @@ yarn-error.log
 /.idea
 /.vscode
 /AdminLTE-3.2.0
+
