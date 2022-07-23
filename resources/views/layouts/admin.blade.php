@@ -13,8 +13,6 @@
     <link rel="stylesheet" href="{{ asset('plugins/jqvmap/jqvmap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('plugins/ion-rangeslider/css/ion.rangeSlider.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('plugins/bootstrap-slider/css/bootstrap-slider.min.css') }}">
 
 </head>
 
@@ -114,8 +112,7 @@
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('dist/js/adminlte.js') }}"></script>
     <script src="{{ asset('plugins/summernote/summernote-bs4.min.js') }}"></script>
-    <script src="{{ asset('plugins/ion-rangeslider/js/ion.rangeSlider.min.js') }}"></script>
-    <script src="{{ asset('plugins/bootstrap-slider/bootstrap-slider.min.js') }}"></script>
+
     <script>
         $('#summernote').summernote({
             lang: 'ru-RU',
@@ -133,34 +130,6 @@
                 ['view', ['fullscreen', 'codeview', 'help']]
             ]
         });
-    </script>
-    @php
-        $allServers = Illuminate\Support\Facades\DB::table('client_packets')
-            ->leftJoin('clients', 'clients.id', '=', 'client_packets.client_id')
-            ->select('clients.server', DB::raw('count(*) as total'))
-            ->groupBy('server')
-            ->get()
-            ->toArray();
-        $servers = [];
-        foreach ($allServers as $server) {
-            $servers[$server->server] = $server->total;
-        }
-    @endphp
-    <script>
-        $(function() {
-            @foreach ($servers as $key => $server)
-                $('#range_{{ $key }}').ionRangeSlider({
-                    min: 0,
-                    max: 3000,
-                    from: {{ $server }},
-                    type: 'single',
-                    step: 1,
-                    postfix: '',
-                    prettify: false,
-                    hasGrid: false
-                })
-            @endforeach
-        })
     </script>
 </body>
 
